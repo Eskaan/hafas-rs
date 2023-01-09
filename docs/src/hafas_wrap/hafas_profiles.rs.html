@@ -106,11 +106,6 @@
 <span id="106">106</span>
 <span id="107">107</span>
 <span id="108">108</span>
-<span id="109">109</span>
-<span id="110">110</span>
-<span id="111">111</span>
-<span id="112">112</span>
-<span id="113">113</span>
 </pre><pre class="rust"><code><span class="doccomment">//! A collection of different HAFAS profiles for different endpoints.
 //! 
 //! Althrough you can define your own, you can get some common HAFAS endpoint profiles here.
@@ -127,12 +122,7 @@
 <span class="kw">use </span><span class="kw">crate</span>::util::decode;
 <span class="kw">use </span>serde_json::json;
 
-<span class="comment">//db      bdI8UVj40K5fvxwf          IeesB8a/ctdu457TpvVasltMN3tgSw3qRUBj6nJiY+4=
-//dbregio z7DFBNAV0Hvh6qQ7          8h+PHzsE8XcQ4mYhVBf7rj1FZ+bMLGmvVxkDg4biIYY=
-//hvv     pqjM3iKEGOAhYbX76k9R5zutv QSbzFgPlbKddv4YaZlKmMawExDseXAlqVyTLJSlKEjo=
-//vbn     SP31mBufSyCLmNxp          awanINIF6bWi0KUjJTq78Dvvi1x0BkRB/MfBl0fS8Uw=
-
-</span><span class="macro">lazy_static::lazy_static! </span>{
+<span class="macro">lazy_static::lazy_static! </span>{
     <span class="doccomment">/// Germany - Deutsche Bahn
     </span><span class="kw">pub static </span><span class="kw-2">ref </span>DB: HafasProfile = HafasProfile {
         url: <span class="string">&quot;https://reiseauskunft.bahn.de/bin/mgate.exe&quot;</span>,

@@ -9,7 +9,7 @@ The idea for this project is not my own. This has ben done before by [David Kies
 The project is split into two main parts: 
 - [`hafas_wrap`], the library to access the HAFAS (Hacon Fahrplan Auskunfts System).
   This library contains the request and response data structures and a request system.
-- [`database_cli`](crate) that uses data queried through the library and injects certain parts into a postgresql database for further processig. It also (currently) contains the subcommands to print a diagram showing the most used stations in the datbase. **If you are searching about how to use this project, you will have to look here.**
+- [`database_cli`][crate] that uses data queried through the library and injects certain parts into a postgresql database for further processig. It also (currently) contains the subcommands to print a diagram showing the most used stations in the datbase. **If you are searching about how to use this project, you will have to look here.**
 
 Each of those projects contain their own `README.md` file further explaining their use.
 
