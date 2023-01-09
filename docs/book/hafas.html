@@ -1,0 +1,271 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>HAFAS &amp; DB - hafas-rs documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">1.</strong> About</a></li><li class="chapter-item expanded "><a href="structure.html"><strong aria-hidden="true">2.</strong> Structure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hafas-wrap.html"><strong aria-hidden="true">2.1.</strong> hafas_wrap</a></li><li class="chapter-item expanded "><a href="database-cli.html"><strong aria-hidden="true">2.2.</strong> database_cli</a></li></ol></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">3.</strong> Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage.html"><strong aria-hidden="true">3.1.</strong> Usage</a></li></ol></li><li class="chapter-item expanded "><a href="hafas.html" class="active"><strong aria-hidden="true">4.</strong> HAFAS & DB</a></li><li class="chapter-item expanded "><a href="goals.html"><strong aria-hidden="true">5.</strong> Goals</a></li><li class="chapter-item expanded "><a href="future.html"><strong aria-hidden="true">6.</strong> Future</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">hafas-rs documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="hafas-and-database-layout"><a class="header" href="#hafas-and-database-layout">HAFAS and Database layout</a></h1>
+<h2 id="database-layout"><a class="header" href="#database-layout">Database Layout</a></h2>
+<p><img src="./images/db_layout.png" alt="Layout" /></p>
+<details>
+<summary>DDL for Database Layout</summary>
+<pre><code class="language-sql">CREATE SCHEMA lookup_data;
+
+CREATE TABLE lookup_data.raw_data (
+    jid int PRIMARY KEY,
+    raw json NOT NULL
+);
+
+CREATE TABLE lookup_data.locations (
+    eva int PRIMARY KEY,
+    name text NOT NULL,
+    x int NOT NULL,
+    y int NOT NULL,
+    z int
+);
+CREATE TABLE lookup_data.operators (
+    name text PRIMARY KEY
+);
+CREATE TABLE lookup_data.train_types (
+    cat_code int NOT NULL,
+    cat_out text NOT NULL,
+    PRIMARY KEY (cat_code, cat_out)
+);
+CREATE TYPE lookup_data.operation_dates AS (
+    dates date[],
+    from_loc int,
+    to_loc int,
+    info text
+);
+CREATE TYPE lookup_data.scheduled_stop AS (
+    eva int,
+    scheduled_arrival time,
+    scheduled_departure time
+);
+CREATE TABLE lookup_data.trips (
+    jid int PRIMARY KEY,
+    op_days lookup_data.operation_dates[] NOT NULL, 
+    cat_code smallint NOT NULL,
+    cat_out text NOT NULL,
+    FOREIGN KEY (cat_code, cat_out) REFERENCES lookup_data.train_types (cat_code, cat_out),
+    name text NOT NULL,
+    route text NOT NULL,
+    id int NOT NULL,
+    admin text NOT NULL,
+    operator text REFERENCES lookup_data.operators (name),
+    stops lookup_data.scheduled_stop[] NOT NULL
+);
+
+CREATE TABLE lookup_data.location_counts (
+    eva int REFERENCES lookup_data.locations (eva),
+    cat_code smallint NOT NULL,
+    cat_out text NOT NULL,
+    FOREIGN KEY (cat_code, cat_out) REFERENCES lookup_data.train_types (cat_code, cat_out),
+    PRIMARY KEY (eva, cat_code, cat_out),
+    name text NOT NULL,
+    count int NOT NULL
+);
+
+
+CREATE FUNCTION lookup_data.get_evas(lookup_data.scheduled_stop[]) RETURNS int[] AS
+$func$
+    SELECT array_agg(vals)
+    FROM (select (unnest($1)).eva as vals) AS stop_evas;
+$func$ LANGUAGE sql STABLE;
+</code></pre>
+</details>
+<p>The whole database is currently contained to the lookup_data schema.</p>
+<p>The common scheme is shown above, with a few custom composite types and functions explained here:</p>
+<ul>
+<li><code>operation_dates</code> is a type that contains a array of <code>dates</code>, a <code>from_loc</code> eva with corresponding <code>to_loc</code> eva and a <code>info</code> text.</li>
+<li><code>scheduled_stop</code> is a type describing a stop of a trip at a station. It contains the <code>eva</code>, the <code>scheduled_arrival</code> time and corresponding <code>scheduled_departure</code> time.</li>
+<li><code>from_evas</code> is a function taking an array of <code>scheduled_stop</code> elaments, extracting only the <code>eva</code> as int array from it.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="usage.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="goals.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="usage.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="goals.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

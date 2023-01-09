@@ -1,0 +1,601 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>hafas-rs documentation</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">1.</strong> About</a></li><li class="chapter-item expanded "><a href="structure.html"><strong aria-hidden="true">2.</strong> Structure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hafas-wrap.html"><strong aria-hidden="true">2.1.</strong> hafas_wrap</a></li><li class="chapter-item expanded "><a href="database-cli.html"><strong aria-hidden="true">2.2.</strong> database_cli</a></li></ol></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">3.</strong> Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage.html"><strong aria-hidden="true">3.1.</strong> Usage</a></li></ol></li><li class="chapter-item expanded "><a href="hafas.html"><strong aria-hidden="true">4.</strong> HAFAS & DB</a></li><li class="chapter-item expanded "><a href="goals.html"><strong aria-hidden="true">5.</strong> Goals</a></li><li class="chapter-item expanded "><a href="future.html"><strong aria-hidden="true">6.</strong> Future</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">hafas-rs documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="about-the-project"><a class="header" href="#about-the-project">About the project</a></h1>
+<p>This project was done for a high school presentation (GFS) by me, Adrian Struwe 
+(<a href="https://github.com/eskaan">Eskaan</a>). </p>
+<p>It is currently licenced under the <a href="https://www.gnu.org/licenses/gpl-3.0.txt">GPL3</a> licence, allowing open distribution and modification of the code.</p>
+<p>The project is fully documented, both in source code (per <a href="doc.rust-lang.org/rustdoc">rustdoc</a>) as in this <a href="rust-lang.github.io/mdBook">mdbook</a>.</p>
+<h2 id="progress"><a class="header" href="#progress">Progress</a></h2>
+<p>I initially started working on the idea back in the autuun holidays 2022, continuing it occasionally and slowly on weekends.
+Only about in the winter holidays after, the holidays before I had to present my project. </p>
+<p>The git history was cleaned on Sunday 08 of January (2022) when I created a new repository excluding the unneccessary upper directory structure.</p>
+<p>Most of the documntation was done to the end of the holidays, as these are part of the project that is being examined.</p>
+<h2 id="inspiration-and-credit"><a class="header" href="#inspiration-and-credit">Inspiration and Credit</a></h2>
+<p>The idea for this project is not my own. This has ben done before by <a href="https://www.dkriesel.com">David Kiesel</a> (using unkown methods) and was presented by him in the <a href="https://events.ccc.de/congress/2019/">C36C3</a> Congress. </p>
+<p>Credit also goes to <a href="https://github.com/marudor">Marudor</a> and his <a href="https://bahn.expert">bahn.expert</a> project, it was very helpful for me to understand the inner workings of HAFAS<sup class="footnote-reference"><a href="#hafas">1</a></sup>.</p>
+<div class="footnote-definition" id="hafas"><sup class="footnote-definition-label">1</sup>
+<p>Hacon Fahrplan Auskunfts System</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="project-structure"><a class="header" href="#project-structure">Project structure</a></h1>
+<h2 id="general-structure"><a class="header" href="#general-structure">General structure</a></h2>
+<p>The project is split into two main parts: </p>
+<ul>
+<li>
+<p><a href="./hafas-wrap.html">hafas-wrap</a>, the library to access the HAFAS<sup class="footnote-reference"><a href="#hafas">1</a></sup>.</p>
+<p>It provides simple ways to access the HAFAS through multiple methods, 
+and a generic type system which also supports custom request and response types out of the common usage.</p>
+</li>
+<li>
+<p><a href="./database-cli.html">database-cli</a> that uses data queried through the library and injects certain parts into a postgresql database for further processig. </p>
+<p>It also (currently) contains the subcommands to print a diagram showing the most used stations in the datbase. 
+<strong>If you are searching about how to use this project, you will have to look here.</strong></p>
+</li>
+</ul>
+<p>Most of the project, althrough not all, is written in a more procedual style, as this program is based on a cli and corresponding library. 
+There are more object oriented parts in the library.</p>
+<h2 id="other-documentation"><a class="header" href="#other-documentation">Other documentation</a></h2>
+<p>Each of those projects contain their own <code>README.md</code> file further explaining their use.</p>
+<p>I also recommend using the rust-doc documentation for the project-level documentation, found in the <code>docs</code> folder <a href="/docs/database_cli/index.html"><code>./docs/database_cli/index.html</code></a>.</p>
+<div class="footnote-definition" id="hafas"><sup class="footnote-definition-label">1</sup>
+<p>Hacon Fahrplan Auskunfts System</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-hafas_wrap-library"><a class="header" href="#the-hafas_wrap-library">The hafas_wrap library</a></h1>
+<p>The main functionality comes with the <code>Client</code> object, as all requests are done through it.</p>
+<p>This library also provides some <a href="hafas-wrap.html#hafas-profiles"><code>hafas_profiles</code></a> for common endpoints and <a href="hafas-wrap.html#methods">request and response structs</a> to simplyfy the working with HAFAS endpoints.
+The <a href="hafas-wrap.html#utils"><code>util</code></a> module provides functions to de- and encode Base64-AES Strings using a statically set key and a md5 hashing function needed for requests.</p>
+<h2 id="the-request-function"><a class="header" href="#the-request-function">The request function</a></h2>
+<p>It provides a simple, through customisable system to access the HAFAS<sup class="footnote-reference"><a href="#hafas">1</a></sup>.
+There are three common request parameters:</p>
+<pre><code class="language-rust ignore">    pub async fn request&lt;I: Serialize + Sized, O: DeserializeOwned&gt;(
+        &amp;self,
+        profile: &amp;HafasProfile,
+        requests: Vec&lt;RawHafasRequest&lt;I&gt;&gt;,
+    ) -&gt; Result&lt;Vec&lt;O&gt;, RequestError&gt; {</code></pre>
+<ul>
+<li>
+<p>A reference to it<code>self</code>, to access the <a href="https://crates.io/crates/reqwest">reqwest</a> request client used to make web requests</p>
+</li>
+<li>
+<p>A reference to a instance of the <code>HafasProfile</code> type.</p>
+<p>A hafas profile specifies the endpoint, possible encryption and additional config data that has to be passed on with the request.</p>
+</li>
+<li>
+<p>An array containing instances of the <code>RawHafasRequest</code> type.</p>
+<p>The <code>RawHafasRequest</code> type (and it's request generic) have to implement <code>serde::Serialize + Send</code>. 
+These implementations are needed for the type to be serialized to a JSON string, used in the POST request to HAFAS<sup class="footnote-reference"><a href="#hafas">1</a></sup>.</p>
+</li>
+</ul>
+<p>The <code>request</code> function also tries to parse the resulting request bodies into the specified generic type <code>O</code>. 
+This type has to implement <code>DeserializeOwned</code> so it can be deserialized from a JSON object. </p>
+<h2 id="request-procedure"><a class="header" href="#request-procedure">Request procedure</a></h2>
+<p>There are two methods of requesting data: Either <code>request</code> or <code>request_raw</code>, 
+where <code>request</code> is mainly a wrapper around the <code>request_raw</code> method to make parsing of the results easier.</p>
+<p>Here is a summary of what the functions do:</p>
+<p>Both:</p>
+<ol>
+<li>
+<p>Clone the <code>HafasProfile</code> into a JSON object,</p>
+<p>Serialize the requests into a JSON object and set the <code>svcReqL</code> value of the request to it. </p>
+<p>Serialize the JSON object into a String</p>
+<pre><code class="language-rust ignore">     let mut req_values = profile.config.clone();
+     req_values[&quot;svcReqL&quot;] = serde_json::to_value(&amp;requests).unwrap();
+     let req_string = serde_json::to_string(&amp;req_values)?;</code></pre>
+</li>
+<li>
+<p>Optionally create a checksum for the GET parameters of the request.</p>
+<pre><code class="language-rust ignore">     let checksum = match &amp;profile.secret {
+         Some(secret) =&gt; util::hash_md5(&amp;(req_string.clone() + secret)),
+         None =&gt; String::new(),
+     };</code></pre>
+</li>
+<li>
+<p>Create, send and wait for the response text of a web request to HAFAS<sup class="footnote-reference"><a href="#hafas">1</a></sup>.</p>
+<pre><code class="language-rust ignore">     let response = self
+         .reqwest_client
+         .post(profile.url)
+         .header(&quot;Accept&quot;, &quot;application/json&quot;)
+         .header(&quot;Content-Type&quot;, &quot;application/json&quot;)
+         .query(&amp;[(&quot;checksum&quot;, &amp;checksum)])
+         .body(req_string)
+         .send()
+         .await?;</code></pre>
+</li>
+</ol>
+<p><code>request_raw</code> at this point returns the response String, whilst <code>request</code> continues with parsing the response:</p>
+<p>Only <code>request</code>:</p>
+<ol start="5">
+<li>
+<p>Checks if HAFAS<sup class="footnote-reference"><a href="#hafas">1</a></sup> returned an error message.</p>
+<pre><code class="language-rust ignore">     if res.get(&quot;err&quot;) != Some(&amp;Value::String(String::from(&quot;OK&quot;))) {
+         return Err(RequestError::InternalError(
+             res.get(&quot;err&quot;)</code></pre>
+</li>
+<li>
+<p>Deserializes the request to a JSON object and then tries to get the response body segment as an array.</p>
+<pre><code class="language-rust ignore">     res.get(&quot;svcResL&quot;)
+         .ok_or(RequestError::DeserializeError(
+             &quot;Response not an Object or svcResL does not exist in it.&quot;,
+         ))?
+         .as_array()
+         .ok_or(RequestError::DeserializeError(&quot;svcResL is not an array.&quot;))?</code></pre>
+</li>
+<li>
+<p>Deserializes the array of JSON objects into the specified generic type <code>O</code></p>
+<pre><code class="language-rust ignore">         .iter()
+         .map(|r| {
+             Ok(serde_json::from_value(
+                 r.get(&quot;res&quot;)
+                     .ok_or(RequestError::DeserializeError(
+                         &quot;field res does not exist. This is most likely a request error.&quot;,
+                     ))?
+                     .clone(),
+             )?)
+         })
+         .collect::&lt;Result&lt;Vec&lt;O&gt;, RequestError&gt;&gt;()</code></pre>
+</li>
+</ol>
+<h2 id="hafas-profiles"><a class="header" href="#hafas-profiles">HAFAS Profiles</a></h2>
+<p>In the <code>hafas_profiles</code> module, you can find multiple config presets for different HAFAS<sup class="footnote-reference"><a href="#hafas">1</a></sup> endpoints. </p>
+<p>These were collected from different other open source projects.</p>
+<h2 id="methods"><a class="header" href="#methods">Methods</a></h2>
+<p>In the <code>methods</code> module, you can find some Request and Response struct presets. You do not have to use these, but they have been tested and seem to work.</p>
+<p>Current available methods:</p>
+<ul>
+<li>HimSearch</li>
+<li>JourneyMatch</li>
+<li>JourneyDetail</li>
+</ul>
+<h2 id="utils"><a class="header" href="#utils">Utils</a></h2>
+<p>Some miscelaneous functions like ones to AES-Encrypt with a set key or to hash a String using the <code>md5</code> digest algorithm. </p>
+<div class="footnote-definition" id="hafas"><sup class="footnote-definition-label">1</sup>
+<p><a href="https://de.wikipedia.org/wiki/HAFAS">Hacon Fahrplan Auskunfts System</a></p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-database-cli-toolchain"><a class="header" href="#the-database-cli-toolchain">The database-cli toolchain</a></h1>
+<p>This is the (currently) only implementation of the aforementioned library.</p>
+<p>The current use is to create a database of trips, train_types, locations and operators. 
+For the exact layout, see <code>database_layout.png</code> at the root of the project.
+You can also create a simple diagram from usage statistics.</p>
+<p>Altrough the program does not need a live database to compile, it will need a postgres database to function.
+The database needs to be on localhost, with the name <code>db-statistics</code> and the user <code>postgres</code> (password-less) 
+being able to access all tables specified in the database layout. 
+To prepare the database for use, run <code>database-cli migrate</code>. This will create all neccecary schemas, tables, types and functions.</p>
+<p>For the exact usage, refer to the rustdoc dcumentation of the [<code>main</code>] method or the usage section in the book.</p>
+<p>This crate is mostly written in a more procedual (althrough object-oriented) programming style, as common for a cli interface to a library.
+This results in many modules which mostly contain single functions instead of entire objects. </p>
+<p>For this module-level I highly recommend the rust-doc documentation for this crate available <a href="./databasecli/index.html">here</a></p>
+<p>For better structured information on the cli commands, see the <a href="./usage.html">usage section</a> of this book.</p>
+<h2 id="main"><a class="header" href="#main">Main</a></h2>
+<p>This is the root module of the crate, here lies the function that is called on program start. This module parses the cli arguments and calls the corresponding functions.</p>
+<h2 id="request_raw_jids"><a class="header" href="#request_raw_jids">request_raw_jids</a></h2>
+<p>This module is responsible for the <code>data request_raw</code> subcommand. It requests raw data from HAFAS and writes it to the <code>raw_data</code> table.</p>
+<h2 id="parse_raw_jids"><a class="header" href="#parse_raw_jids">parse_raw_jids</a></h2>
+<p>This module gets called from the <code>data parse</code> subcommand and parses data from the <code>raw_data</code> and inserts it into the other tables <code>trips</code>,<code>locations</code>,<code>operators</code> and <code>train_types</code>.</p>
+<h2 id="count_location_trips"><a class="header" href="#count_location_trips">count_location_trips</a></h2>
+<p>This module is a extension to the <code>data parse</code> subcommand, called by using <code>dara parse_heatmap</code>. It </p>
+<h2 id="compare_raw_data"><a class="header" href="#compare_raw_data">compare_raw_data</a></h2>
+<p>This module is called from the <code>data check</code> subcommand. It uses the request_raw_jids module to request a single jid and compare it to the <code>raw_data</code> table.</p>
+<h2 id="create_heatmap_diagram"><a class="header" href="#create_heatmap_diagram">create_heatmap_diagram</a></h2>
+<p>This module contains the only practical use besides playing with database data I have fount yet. It is called by the <code>create_heatmap</code> subcommand and creates a horizontal chart diagram displaying the most used stations in the database.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
+<h2 id="dependencies"><a class="header" href="#dependencies">Dependencies</a></h2>
+<p>This program depends on:</p>
+<ul>
+<li>A running <a href="https://www.postgresql.org/">Postgresql</a> server on <code>postgres://postgres@localhost/db-statistics</code>. <br>
+Tested with Postgresql 13.</li>
+<li><a href="https://www.rust-lang.org/">Rust</a> stable.</li>
+<li>A working internet connection</li>
+</ul>
+<h2 id="quick-starter-guide"><a class="header" href="#quick-starter-guide">Quick starter guide</a></h2>
+<p>Disclaimer: Most of this guide only works on Linux, you may refer to the <a href="https://www.postgresql.org/docs/current/">Postgresql documentation</a> and the <a href="https://www.rust-lang.org/">Rust</a> website for more information on other systems.</p>
+<ol>
+<li>Firstly, you have to install <a href="https://www.postgresql.org/">postgresql</a>:
+<ol>
+<li>Install the database package on your system:
+<ul>
+<li>Arch: <code>sudo pacman -S postgresql</code></li>
+<li>Debain &amp; Ubuntu: <code>sudo apt install postgresql</code></li>
+<li>Other: <a href="https://www.postgresql.org/docs/current/tutorial-install.html">Postgresql install guide</a></li>
+</ul>
+</li>
+<li>Then, login into the newly created user: <code>sudo su postgres</code></li>
+<li>Create a new database cluster using <code>initdb -D directory/to/store/data</code>.</li>
+<li>Create a new database in the cluster named db-statistics in the cluster: <code>createdb db-statistics</code></li>
+<li>Start the Postgresql server (usually <code>sudo systemctl start postgresql</code>)</li>
+</ol>
+</li>
+<li>Compile the project:
+<ol>
+<li>Install the rustup package:
+<ul>
+<li>Arch: <code>sudo pacman install rustup</code></li>
+<li>Debial &amp; Ubuntu: <code>sudo apt install rustup</code></li>
+<li>Other: <a href="https://rustup.rs/">Rustup install guide</a></li>
+</ul>
+</li>
+<li>Run <code>rustup install stable</code> in your terminal.</li>
+<li>Run <code>cargo build --release</code> in the hafas-rs folder.
+This should create a folder named <code>target/release</code> that contains a executable named <code>database-cli</code>.
+Congratulations, you just succesfully compiled the project!</li>
+</ol>
+</li>
+<li>Then use <code>database-cli migrate</code> to check the connection to the local database and create neccessary infrastructure like schemas, tables and functions.</li>
+<li>Use <code>database-cli data request_raw --parse</code> To request data and parse it into the database. 
+This will take a while for all ~1.5 Million entries to be fetched.
+I recommend running this command over night and at other times the system is not under heavy load.</li>
+<li>You are ready to play with the data in your favourite SQL prompt! See the <a href="./hafas.html">HAFAS Section</a> for more information on the database structure.</li>
+</ol>
+<p>(Optional)</p>
+<ol start="5">
+<li>
+<p>Use <code>database-cli data parse_heatmap</code> to parse trip's eva counts into a lighter format.</p>
+</li>
+<li>
+<p>Use <code>database-cli create_heatmap -m 10</code> to get a diagram of the 10 most used stations.</p>
+<p>After following these steps, the program should create a image named <code>heatmap.svg</code> in the current folder. Here is an example for it:
+<img src="./images/heatmap.svg" alt="Heatmap diagram" /></p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="usage"><a class="header" href="#usage">Usage</a></h1>
+<p>As the name of the crate already suggests, <code>database-cli</code> compiles into a command line interface.
+This interface works together with a postgresql database to store and request HAFAS data.</p>
+<h2 id="list-of-sub-commands"><a class="header" href="#list-of-sub-commands">List of sub-commands:</a></h2>
+<p>All commands can be passed -v or -vv to make them more verbose.
+You can add the <code>--help</code> argument to any subcommand to see details about the arguments.
+If you do not want to compile the cli, refer to the source code for arguments.</p>
+<details>
+<summary>Responsible code in `main.rs`</summary>
+<pre><code class="language-rust ignore">    // Setup clap with subcommands
+    let mut cmd = command!(&quot;Hafas Scraping Database Tools&quot;)
+        .arg(arg!(-v --verbose... &quot;Verbose output. Specify twice for trace mode&quot;))
+        .arg(arg!(-q --quiet &quot;Only print on error and warnings&quot;))
+        .subcommands(&amp;[
+            command!(&quot;data&quot;)
+                .about(&quot;Lookup and schedule data management&quot;)
+                .subcommands(&amp;[
+                    command!(&quot;request_raw&quot;)
+                        .about(&quot;Request raw schedule data&quot;)
+                        .args(&amp;[
+                            arg!(&lt;TO&gt; &quot;Stop at jid&quot;).value_parser(value_parser!(usize)),
+                            arg!([FROM] &quot;Begin with jid, defaults to 0&quot;)
+                                .value_parser(value_parser!(usize)),
+                            arg!(-u --update &quot;Also request existing entries&quot;),
+                            arg!(-c --continue &quot;Continue at current highes jid&quot;),
+                            arg!(-p --parse &quot;Synchronously parse using `data parse`&quot;),
+                            arg!(-s --&quot;chunk-size&quot; &lt;SIZE&gt; &quot;Chunk size of requests. Defaults to 100&quot;).value_parser(value_parser!(usize)),
+                        ]),
+                        command!(&quot;parse&quot;)
+                            .about(&quot;Parse raw data to schedule and stop data.&quot;)
+                            .args(&amp;[
+                                arg!([FROM] &quot;Begin with jid, defaults to 0&quot;).value_parser(value_parser!(i32)),
+                                arg!([TO] &quot;Stop at jid&quot;).value_parser(value_parser!(i32)),
+                                arg!(-s --&quot;chunk-size&quot; &lt;SIZE&gt; &quot;Chunk size of requests. Defaults to 100&quot;).value_parser(value_parser!(i32)),
+                        ]),
+                        command!(&quot;parse_heatmap&quot;)
+                            .about(&quot;Parse trip data to heatmap counts.&quot;),
+                        command!(&quot;check&quot;)
+                        .about(&quot;Check if a single jid is different to the remote data.&quot;).arg(arg!(&lt;jid&gt; &quot;jid to check on&quot;).value_parser(value_parser!(usize))),
+                ]),
+                command!(&quot;create_heatmap&quot;)
+                .about(&quot;Create heatmap diagram from parsed data.&quot;)
+                .args(&amp;[
+                    arg!([FILE] &quot;Output file to use. Defaults to ./heatmap.svg&quot;),
+                    arg!(-m --max &lt;SIZE&gt; &quot;Maximum entries to display&quot;).value_parser(value_parser!(usize)),
+                    arg!(-c --&quot;filter-cat-code&quot; &lt;CAT_CODE&gt; &quot;Filter results by cat code&quot;).value_parser(value_parser!(u8)),
+                    arg!(-o --&quot;filter-cat-out&quot; &lt;CAT_OUT&gt; &quot;Filter results by cat out (f.e. RE, ICE)&quot;),
+                    arg!(-s --&quot;limit-search&quot; &lt;SIZE&gt; &quot;Maximum search results to query&quot;).value_parser(value_parser!(i64)),
+                ]),
+            //command!(&quot;status&quot;).about(&quot;Query database status&quot;),
+            command!(&quot;migrate&quot;).about(&quot;Migrate/create database&quot;),
+        ]);</code></pre>
+</details>
+<ul>
+<li>
+<p><code>data</code> This command can only be used together with one of it's subcommand, it does not have any properties to it's own.
+It generally collects commands that are used to move lookup data for train trips on the database.</p>
+<ul>
+<li>
+<p><code>request_raw</code>: This command requests raw schedule data over all jids in the HAFAS endpoint. 
+Independenty of the <code>TO</code> argument, the command will panic if it reaches the last jid.
+The ususal last jid is around 1.5 Million.</p>
+<p>This is usually the second command ran after <code>migrate</code>.</p>
+<p>Be aware that, depending on your computer and network connection, this command usually takes quite a long time to finish.
+It is recommended, altrough not neccessary, to invoke it with <code>--parse</code>.</p>
+<p>It is recommended to leave all other optional flags to a default value to prevent a timeout.</p>
+</li>
+<li>
+<p><code>parse</code>: This command parses the data from the <code>raw_data</code> table to a usable format and insertis it into the other tables. 
+It can also be called automatically by adding <code>--parse</code> to the arguments of <code>request_raw</code>.</p>
+<p>You may look at the database scheme and mainly the <a href="./hafas.html">hafas section</a> for more details about how data gets parsed.</p>
+</li>
+<li>
+<p><code>parse_heatmap</code>: This command is a command that should be called at some time before using the <code>create_heatmap</code> feature. 
+It counts together all of the recorded train trips into their own table for faster access.</p>
+<p>As near and local trafic can obfuscate the ending image, I recommend setting <code>-o 'ICE'</code> as filter.</p>
+</li>
+<li>
+<p><code>check</code>: This command checks if data from the HAFAS endpoint differs from the current data. 
+This check is only done for a single jid. A difference might hint at a schedule change.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>create_heatmap</code> Creates a horizontal bar diagram of the most used stations in the lookup table. 
+It can be filtered by cat_code, cat_out and search limit. For currently unkown reasons, anything over 11 Bars will mess up the station names.</p>
+</li>
+<li>
+<p><code>migrate</code>: Creates all neccessary infrastructure on the remote database. The cli itself currently only operates on the lookup_data schema, but this <code>sqlx</code> feature needs </p>
+</li>
+</ul>
+<p>Most of the commands will result in a progress bar like this:
+<img src="./images/progress_bar.png" alt="Progress-Bar" /><br>
+The counts at the end should give you a rough hint on how long the command will take.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hafas-and-database-layout"><a class="header" href="#hafas-and-database-layout">HAFAS and Database layout</a></h1>
+<h2 id="database-layout"><a class="header" href="#database-layout">Database Layout</a></h2>
+<p><img src="./images/db_layout.png" alt="Layout" /></p>
+<details>
+<summary>DDL for Database Layout</summary>
+<pre><code class="language-sql">CREATE SCHEMA lookup_data;
+
+CREATE TABLE lookup_data.raw_data (
+    jid int PRIMARY KEY,
+    raw json NOT NULL
+);
+
+CREATE TABLE lookup_data.locations (
+    eva int PRIMARY KEY,
+    name text NOT NULL,
+    x int NOT NULL,
+    y int NOT NULL,
+    z int
+);
+CREATE TABLE lookup_data.operators (
+    name text PRIMARY KEY
+);
+CREATE TABLE lookup_data.train_types (
+    cat_code int NOT NULL,
+    cat_out text NOT NULL,
+    PRIMARY KEY (cat_code, cat_out)
+);
+CREATE TYPE lookup_data.operation_dates AS (
+    dates date[],
+    from_loc int,
+    to_loc int,
+    info text
+);
+CREATE TYPE lookup_data.scheduled_stop AS (
+    eva int,
+    scheduled_arrival time,
+    scheduled_departure time
+);
+CREATE TABLE lookup_data.trips (
+    jid int PRIMARY KEY,
+    op_days lookup_data.operation_dates[] NOT NULL, 
+    cat_code smallint NOT NULL,
+    cat_out text NOT NULL,
+    FOREIGN KEY (cat_code, cat_out) REFERENCES lookup_data.train_types (cat_code, cat_out),
+    name text NOT NULL,
+    route text NOT NULL,
+    id int NOT NULL,
+    admin text NOT NULL,
+    operator text REFERENCES lookup_data.operators (name),
+    stops lookup_data.scheduled_stop[] NOT NULL
+);
+
+CREATE TABLE lookup_data.location_counts (
+    eva int REFERENCES lookup_data.locations (eva),
+    cat_code smallint NOT NULL,
+    cat_out text NOT NULL,
+    FOREIGN KEY (cat_code, cat_out) REFERENCES lookup_data.train_types (cat_code, cat_out),
+    PRIMARY KEY (eva, cat_code, cat_out),
+    name text NOT NULL,
+    count int NOT NULL
+);
+
+
+CREATE FUNCTION lookup_data.get_evas(lookup_data.scheduled_stop[]) RETURNS int[] AS
+$func$
+    SELECT array_agg(vals)
+    FROM (select (unnest($1)).eva as vals) AS stop_evas;
+$func$ LANGUAGE sql STABLE;
+</code></pre>
+</details>
+<p>The whole database is currently contained to the lookup_data schema.</p>
+<p>The common scheme is shown above, with a few custom composite types and functions explained here:</p>
+<ul>
+<li><code>operation_dates</code> is a type that contains a array of <code>dates</code>, a <code>from_loc</code> eva with corresponding <code>to_loc</code> eva and a <code>info</code> text.</li>
+<li><code>scheduled_stop</code> is a type describing a stop of a trip at a station. It contains the <code>eva</code>, the <code>scheduled_arrival</code> time and corresponding <code>scheduled_departure</code> time.</li>
+<li><code>from_evas</code> is a function taking an array of <code>scheduled_stop</code> elaments, extracting only the <code>eva</code> as int array from it.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="goals"><a class="header" href="#goals">Goals</a></h1>
+<p>The formulated goal for this project was to query and compare train schedule to realtime data. Sadly, after many experiments I realized this API was designed to resist such data collection attempts. </p>
+<p>I am still trying to find a feasible way (that does not overload the API) to collect such data.</p>
+<p>As I could not finish with my targeted goal, I insted selected one more realistic; to display the most used stations in the database.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="future-of-the-project"><a class="header" href="#future-of-the-project">Future of the Project</a></h1>
+<p>I plan to continue my work on this and maybe one day make a good HAFAS library for Rust. This is the primary goal for the future, after which I plan to create a public API that serves better readable responses than HAFAS.</p>
+<p>I am always happy to recieve issues and pull requests on my projects, if this project catches on I will surely enjoy maintaining it.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>

@@ -97,7 +97,7 @@ impl Client {
             ));
         }
 
-        // Get request body's from response, discarding
+        // Get request body's from response, discarding the rest
         res.get("svcResL")
             .ok_or(RequestError::DeserializeError(
                 "Response not an Object or svcResL does not exist in it.",

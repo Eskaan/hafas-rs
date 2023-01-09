@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Usage - hafas-rs documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">1.</strong> About</a></li><li class="chapter-item expanded "><a href="structure.html"><strong aria-hidden="true">2.</strong> Structure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hafas-wrap.html"><strong aria-hidden="true">2.1.</strong> hafas_wrap</a></li><li class="chapter-item expanded "><a href="database-cli.html"><strong aria-hidden="true">2.2.</strong> database_cli</a></li></ol></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">3.</strong> Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage.html" class="active"><strong aria-hidden="true">3.1.</strong> Usage</a></li></ol></li><li class="chapter-item expanded "><a href="hafas.html"><strong aria-hidden="true">4.</strong> HAFAS & DB</a></li><li class="chapter-item expanded "><a href="goals.html"><strong aria-hidden="true">5.</strong> Goals</a></li><li class="chapter-item expanded "><a href="future.html"><strong aria-hidden="true">6.</strong> Future</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">hafas-rs documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="usage"><a class="header" href="#usage">Usage</a></h1>
+<p>As the name of the crate already suggests, <code>database-cli</code> compiles into a command line interface.
+This interface works together with a postgresql database to store and request HAFAS data.</p>
+<h2 id="list-of-sub-commands"><a class="header" href="#list-of-sub-commands">List of sub-commands:</a></h2>
+<p>All commands can be passed -v or -vv to make them more verbose.
+You can add the <code>--help</code> argument to any subcommand to see details about the arguments.
+If you do not want to compile the cli, refer to the source code for arguments.</p>
+<details>
+<summary>Responsible code in `main.rs`</summary>
+<pre><code class="language-rust ignore">    // Setup clap with subcommands
+    let mut cmd = command!(&quot;Hafas Scraping Database Tools&quot;)
+        .arg(arg!(-v --verbose... &quot;Verbose output. Specify twice for trace mode&quot;))
+        .arg(arg!(-q --quiet &quot;Only print on error and warnings&quot;))
+        .subcommands(&amp;[
+            command!(&quot;data&quot;)
+                .about(&quot;Lookup and schedule data management&quot;)
+                .subcommands(&amp;[
+                    command!(&quot;request_raw&quot;)
+                        .about(&quot;Request raw schedule data&quot;)
+                        .args(&amp;[
+                            arg!(&lt;TO&gt; &quot;Stop at jid&quot;).value_parser(value_parser!(usize)),
+                            arg!([FROM] &quot;Begin with jid, defaults to 0&quot;)
+                                .value_parser(value_parser!(usize)),
+                            arg!(-u --update &quot;Also request existing entries&quot;),
+                            arg!(-c --continue &quot;Continue at current highes jid&quot;),
+                            arg!(-p --parse &quot;Synchronously parse using `data parse`&quot;),
+                            arg!(-s --&quot;chunk-size&quot; &lt;SIZE&gt; &quot;Chunk size of requests. Defaults to 100&quot;).value_parser(value_parser!(usize)),
+                        ]),
+                        command!(&quot;parse&quot;)
+                            .about(&quot;Parse raw data to schedule and stop data.&quot;)
+                            .args(&amp;[
+                                arg!([FROM] &quot;Begin with jid, defaults to 0&quot;).value_parser(value_parser!(i32)),
+                                arg!([TO] &quot;Stop at jid&quot;).value_parser(value_parser!(i32)),
+                                arg!(-s --&quot;chunk-size&quot; &lt;SIZE&gt; &quot;Chunk size of requests. Defaults to 100&quot;).value_parser(value_parser!(i32)),
+                        ]),
+                        command!(&quot;parse_heatmap&quot;)
+                            .about(&quot;Parse trip data to heatmap counts.&quot;),
+                        command!(&quot;check&quot;)
+                        .about(&quot;Check if a single jid is different to the remote data.&quot;).arg(arg!(&lt;jid&gt; &quot;jid to check on&quot;).value_parser(value_parser!(usize))),
+                ]),
+                command!(&quot;create_heatmap&quot;)
+                .about(&quot;Create heatmap diagram from parsed data.&quot;)
+                .args(&amp;[
+                    arg!([FILE] &quot;Output file to use. Defaults to ./heatmap.svg&quot;),
+                    arg!(-m --max &lt;SIZE&gt; &quot;Maximum entries to display&quot;).value_parser(value_parser!(usize)),
+                    arg!(-c --&quot;filter-cat-code&quot; &lt;CAT_CODE&gt; &quot;Filter results by cat code&quot;).value_parser(value_parser!(u8)),
+                    arg!(-o --&quot;filter-cat-out&quot; &lt;CAT_OUT&gt; &quot;Filter results by cat out (f.e. RE, ICE)&quot;),
+                    arg!(-s --&quot;limit-search&quot; &lt;SIZE&gt; &quot;Maximum search results to query&quot;).value_parser(value_parser!(i64)),
+                ]),
+            //command!(&quot;status&quot;).about(&quot;Query database status&quot;),
+            command!(&quot;migrate&quot;).about(&quot;Migrate/create database&quot;),
+        ]);</code></pre>
+</details>
+<ul>
+<li>
+<p><code>data</code> This command can only be used together with one of it's subcommand, it does not have any properties to it's own.
+It generally collects commands that are used to move lookup data for train trips on the database.</p>
+<ul>
+<li>
+<p><code>request_raw</code>: This command requests raw schedule data over all jids in the HAFAS endpoint. 
+Independenty of the <code>TO</code> argument, the command will panic if it reaches the last jid.
+The ususal last jid is around 1.5 Million.</p>
+<p>This is usually the second command ran after <code>migrate</code>.</p>
+<p>Be aware that, depending on your computer and network connection, this command usually takes quite a long time to finish.
+It is recommended, altrough not neccessary, to invoke it with <code>--parse</code>.</p>
+<p>It is recommended to leave all other optional flags to a default value to prevent a timeout.</p>
+</li>
+<li>
+<p><code>parse</code>: This command parses the data from the <code>raw_data</code> table to a usable format and insertis it into the other tables. 
+It can also be called automatically by adding <code>--parse</code> to the arguments of <code>request_raw</code>.</p>
+<p>You may look at the database scheme and mainly the <a href="./hafas.html">hafas section</a> for more details about how data gets parsed.</p>
+</li>
+<li>
+<p><code>parse_heatmap</code>: This command is a command that should be called at some time before using the <code>create_heatmap</code> feature. 
+It counts together all of the recorded train trips into their own table for faster access.</p>
+<p>As near and local trafic can obfuscate the ending image, I recommend setting <code>-o 'ICE'</code> as filter.</p>
+</li>
+<li>
+<p><code>check</code>: This command checks if data from the HAFAS endpoint differs from the current data. 
+This check is only done for a single jid. A difference might hint at a schedule change.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>create_heatmap</code> Creates a horizontal bar diagram of the most used stations in the lookup table. 
+It can be filtered by cat_code, cat_out and search limit. For currently unkown reasons, anything over 11 Bars will mess up the station names.</p>
+</li>
+<li>
+<p><code>migrate</code>: Creates all neccessary infrastructure on the remote database. The cli itself currently only operates on the lookup_data schema, but this <code>sqlx</code> feature needs </p>
+</li>
+</ul>
+<p>Most of the commands will result in a progress bar like this:
+<img src="./images/progress_bar.png" alt="Progress-Bar" /><br>
+The counts at the end should give you a rough hint on how long the command will take.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="installation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="hafas.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="installation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="hafas.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
