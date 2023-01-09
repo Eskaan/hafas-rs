@@ -1,0 +1,7 @@
+[workspace]
+
+members = [
+    "hafas-wrap",
+    "database-cli",
+    #"gtfs-reader",
+]

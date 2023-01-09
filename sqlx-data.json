@@ -1,0 +1,414 @@
+{
+  "db": "PostgreSQL",
+  "019e3ef3203010b40177c8db90cfb2ed89565b60730de1ae04b824f3bd884720": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      }
+    },
+    "query": "INSERT INTO lookup_data.operators VALUES ($1) ON CONFLICT DO NOTHING"
+  },
+  "19e77cde278b2dbd520b280d27f7243ff99258ffa5039fb755ebcda72446a68d": {
+    "describe": {
+      "columns": [
+        {
+          "name": "name",
+          "ordinal": 0,
+          "type_info": "Text"
+        }
+      ],
+      "nullable": [
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Int4"
+        ]
+      }
+    },
+    "query": "SELECT name FROM lookup_data.locations WHERE eva = $1"
+  },
+  "2230c7a22d56df831acb4829aee5db62ac72db3ec91f98c1038fabd7cf537442": {
+    "describe": {
+      "columns": [
+        {
+          "name": "max",
+          "ordinal": 0,
+          "type_info": "Int4"
+        }
+      ],
+      "nullable": [
+        null
+      ],
+      "parameters": {
+        "Left": []
+      }
+    },
+    "query": "SELECT MAX(jid) FROM lookup_data.raw_data"
+  },
+  "2af56228a0ca23144e2f3a36245a77cc84434648eeb3278f4a4b49902616065d": {
+    "describe": {
+      "columns": [
+        {
+          "name": "raw",
+          "ordinal": 0,
+          "type_info": "Json"
+        }
+      ],
+      "nullable": [
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Int4"
+        ]
+      }
+    },
+    "query": "SELECT raw FROM lookup_data.raw_data WHERE jid = $1"
+  },
+  "3b2de7b4700fdff505c507f3d58ef6c61aae3d972b6b0ffdef7257fdf8933f58": {
+    "describe": {
+      "columns": [
+        {
+          "name": "jid",
+          "ordinal": 0,
+          "type_info": "Int4"
+        },
+        {
+          "name": "raw",
+          "ordinal": 1,
+          "type_info": "Json"
+        }
+      ],
+      "nullable": [
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Int4",
+          "Int4"
+        ]
+      }
+    },
+    "query": "SELECT * FROM lookup_data.raw_data WHERE jid >= $1 AND jid <= $2"
+  },
+  "4e22d0766ddb9a440820a28d50a113dcc7a45102fc801ac534fd7d4876966ce7": {
+    "describe": {
+      "columns": [
+        {
+          "name": "get_evas",
+          "ordinal": 0,
+          "type_info": "Int4Array"
+        },
+        {
+          "name": "cat_code",
+          "ordinal": 1,
+          "type_info": "Int2"
+        },
+        {
+          "name": "cat_out",
+          "ordinal": 2,
+          "type_info": "Text"
+        },
+        {
+          "name": "op_days: Vec<OpDays>",
+          "ordinal": 3,
+          "type_info": {
+            "Custom": {
+              "kind": {
+                "Array": {
+                  "Custom": {
+                    "kind": {
+                      "Composite": [
+                        [
+                          "dates",
+                          "DateArray"
+                        ],
+                        [
+                          "from_loc",
+                          "Int4"
+                        ],
+                        [
+                          "to_loc",
+                          "Int4"
+                        ],
+                        [
+                          "info",
+                          "Text"
+                        ]
+                      ]
+                    },
+                    "name": "operation_dates"
+                  }
+                }
+              },
+              "name": "_operation_dates"
+            }
+          }
+        }
+      ],
+      "nullable": [
+        null,
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Int4"
+        ]
+      }
+    },
+    "query": "SELECT lookup_data.get_evas(stops),cat_code,cat_out,op_days as \"op_days: Vec<OpDays>\" FROM lookup_data.trips WHERE jid = $1"
+  },
+  "660e74732ce11a3c89f82d1a09b9f48a7595487c87951f78d61d2d0f0a2892e0": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Int4",
+          "Text"
+        ]
+      }
+    },
+    "query": "INSERT INTO lookup_data.train_types VALUES ($1,$2) ON CONFLICT DO NOTHING"
+  },
+  "87d255a0facaffa15536ceda7795a21430735f5d670a2e551fba862cb4f56cb4": {
+    "describe": {
+      "columns": [
+        {
+          "name": "min",
+          "ordinal": 0,
+          "type_info": "Int4"
+        }
+      ],
+      "nullable": [
+        null
+      ],
+      "parameters": {
+        "Left": []
+      }
+    },
+    "query": "SELECT MIN(jid) FROM lookup_data.trips"
+  },
+  "96d0bedc91b178aeaf9ba22c34eccc7a6a97ce4b46b0f84aa7e2477dcc4f774b": {
+    "describe": {
+      "columns": [
+        {
+          "name": "name",
+          "ordinal": 0,
+          "type_info": "Text"
+        },
+        {
+          "name": "count",
+          "ordinal": 1,
+          "type_info": "Int4"
+        }
+      ],
+      "nullable": [
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Int2",
+          "Text",
+          "Int8"
+        ]
+      }
+    },
+    "query": "SELECT name,count FROM lookup_data.location_counts \n        WHERE cat_code <= $1\n        AND cat_out ~* $2\n        ORDER BY count DESC \n        LIMIT $3"
+  },
+  "98b32673d7277cd1bcb110fda9edfe8609bc38e2ad9ce239241a3b9751f2620e": {
+    "describe": {
+      "columns": [
+        {
+          "name": "count",
+          "ordinal": 0,
+          "type_info": "Int8"
+        }
+      ],
+      "nullable": [
+        null
+      ],
+      "parameters": {
+        "Left": [
+          "Int4"
+        ]
+      }
+    },
+    "query": "SELECT COUNT(*) FROM lookup_data.raw_data WHERE jid = $1"
+  },
+  "a74df234d6dbdfc9f5a3af6278957fbf1b1de5be70a2fbfaef71c75b6c28b824": {
+    "describe": {
+      "columns": [
+        {
+          "name": "max",
+          "ordinal": 0,
+          "type_info": "Int4"
+        }
+      ],
+      "nullable": [
+        null
+      ],
+      "parameters": {
+        "Left": []
+      }
+    },
+    "query": "SELECT MAX(jid) FROM lookup_data.trips"
+  },
+  "b4a9c2435d179d6cd851d00f9fa56c6b11bb0e073a47e53aaeaf101cea06dcfb": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": []
+      }
+    },
+    "query": "DELETE FROM lookup_data.location_counts"
+  },
+  "b6e344296a30145f8642fcc41a879779f21b5d64dad1e530594164bda8cb7e6f": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Int4",
+          "Text",
+          "Int4",
+          "Int4",
+          "Int4"
+        ]
+      }
+    },
+    "query": "INSERT INTO lookup_data.locations VALUES ($1,$2,$3,$4,$5) ON CONFLICT DO NOTHING"
+  },
+  "c129f4db78f88d45c1bac4755f042715c65877745b66b75abc3c751456ca97fb": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Int4",
+          "Int2",
+          "Text",
+          "Text"
+        ]
+      }
+    },
+    "query": "INSERT INTO lookup_data.location_counts VALUES ($1,$2,$3,$4,0) ON CONFLICT DO NOTHING"
+  },
+  "d90a4db6ba527c239e122a8f3232ab8e06c315c6152bf298a505a21a940a7685": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Int4",
+          {
+            "Custom": {
+              "kind": {
+                "Array": {
+                  "Custom": {
+                    "kind": {
+                      "Composite": [
+                        [
+                          "dates",
+                          "DateArray"
+                        ],
+                        [
+                          "from_loc",
+                          "Int4"
+                        ],
+                        [
+                          "to_loc",
+                          "Int4"
+                        ],
+                        [
+                          "info",
+                          "Text"
+                        ]
+                      ]
+                    },
+                    "name": "operation_dates"
+                  }
+                }
+              },
+              "name": "_operation_dates"
+            }
+          },
+          "Int2",
+          "Text",
+          "Text",
+          "Text",
+          "Int4",
+          "Text",
+          "Text",
+          {
+            "Custom": {
+              "kind": {
+                "Array": {
+                  "Custom": {
+                    "kind": {
+                      "Composite": [
+                        [
+                          "eva",
+                          "Int4"
+                        ],
+                        [
+                          "scheduled_arrival",
+                          "Time"
+                        ],
+                        [
+                          "scheduled_departure",
+                          "Time"
+                        ]
+                      ]
+                    },
+                    "name": "scheduled_stop"
+                  }
+                }
+              },
+              "name": "_scheduled_stop"
+            }
+          }
+        ]
+      }
+    },
+    "query": "INSERT INTO lookup_data.trips (jid,op_days,cat_code,cat_out,name,route,id,admin,operator,stops) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) ON CONFLICT DO NOTHING"
+  },
+  "db4790bae67f89c96c6490422b4eea22edcb7af99ed108f4de242d73b9456003": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Int4",
+          "Json"
+        ]
+      }
+    },
+    "query": "INSERT INTO lookup_data.raw_data VALUES ($1,$2) ON CONFLICT DO NOTHING"
+  },
+  "f74c47f5e02f55d2de762052d6463d78edd323dde4ea03419d6d4f633b1fcf5f": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Int4",
+          "Int2",
+          "Text",
+          "Int4"
+        ]
+      }
+    },
+    "query": "UPDATE lookup_data.location_counts SET count = count + $4 WHERE eva = $1 AND cat_code = $2 AND cat_out = $3"
+  }
+}

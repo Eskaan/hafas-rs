@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["compare_print","This function is called by the cli sub-command `data check`."]]};

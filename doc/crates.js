@@ -1,0 +1,1 @@
+window.ALL_CRATES = ["database_cli","hafas_wrap"];

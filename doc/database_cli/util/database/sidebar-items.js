@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["connect","Connect to the local database. The database must be at `postgres://postgres@localhost/db-statistics`."]]};

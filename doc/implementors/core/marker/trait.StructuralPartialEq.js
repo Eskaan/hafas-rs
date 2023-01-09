@@ -1,0 +1,3 @@
+(function() {var implementors = {
+"database_cli":[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.66.0/core/marker/trait.StructuralPartialEq.html\" title=\"trait core::marker::StructuralPartialEq\">StructuralPartialEq</a> for <a class=\"enum\" href=\"database_cli/util/logging/enum.LogLevel.html\" title=\"enum database_cli::util::logging::LogLevel\">LogLevel</a>"]]
+};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

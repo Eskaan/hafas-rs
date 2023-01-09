@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["him_search",""],["journey_detail",""],["journey_match",""],["sub_types",""]],"struct":[["HimSearchRequest",""],["JourneyDetailsRequest",""],["JourneyDetailsResponse",""],["JourneyMatchRequest",""],["JourneyMatchResponse",""]]};

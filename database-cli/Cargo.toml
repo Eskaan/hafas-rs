@@ -1,0 +1,16 @@
+[package]
+name = "database-cli"
+description = "Hafas Scraping Database Toolchain"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+hafas-wrap = { path = "../hafas-wrap" }
+tokio = { version = "1", features = ["full"] }
+sqlx = { version = "0.6", features = ["runtime-tokio-rustls", "postgres", "offline", "migrate", "time", "json"] }
+serde_json = "1.0"
+clap = { version = "4.0", features = ["cargo"] }
+time = { version = "0.3", features = ["parsing"] }
+futures = "0.3"
+progress_bar = "1.0"
+plotters = "0.3"

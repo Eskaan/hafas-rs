@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["create_heatmap","This function is called by the cli sub-command `create_heatmap`."],["draw_diagram","Draws a horizontal bar diagram from the input Vec to a given svg file."]]};

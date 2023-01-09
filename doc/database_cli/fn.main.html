@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="The main method of the cli program."><meta name="keywords" content="rust, rustlang, rust-lang, main"><title>main in database_cli - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../normalize.css"><link rel="stylesheet" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../ayu.css" disabled><link rel="stylesheet" href="../dark.css" disabled><link rel="stylesheet" href="../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../storage.js"></script><script defer src="sidebar-items.js"></script><script defer src="../main.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head><body class="rustdoc fn"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../database_cli/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div></a><h2></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../database_cli/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div></a><div class="sidebar-elems"><h2><a href="index.html">In database_cli</a></h2></div></nav><main><div class="width-limiter"><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="main-heading"><h1 class="fqn">Function <a href="index.html">database_cli</a>::<wbr><a class="fn" href="#">main</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></h1><span class="out-of-band"><a class="srclink" href="../src/database_cli/main.rs.html#41-145">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><div class="item-decl"><pre class="rust fn"><code>pub(crate) fn main()</code></pre></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>The main method of the cli program.</p>
+<p>This method parses the system-given command arguments using the <code>clap</code>
+crate and calls the corresponding method.</p>
+<h2 id="list-of-sub-commands"><a href="#list-of-sub-commands">List of sub-commands:</a></h2>
+<p>All commands can be passed -v or -vv to make them more verbose.
+You can add the <code>--help</code> argument to any subcommand to see details about the arguments.
+If you do not want to compile the cli, refer to the source code for arguments.</p>
+<ul>
+<li><code>data</code>
+<ul>
+<li>
+<p><code>request_raw</code>: This command requests raw schedule data over all jids in the HAFAS endpoint. 
+Independenty of the <code>TO</code> argument, the command will panic if it reaches the last jid.
+The ususal last jid is around 1.5 Million.</p>
+<p>It is recommended to leave all optional arguments to a default value to prevent a timeout.</p>
+</li>
+<li>
+<p><code>parse</code>: This command parses the data from the <code>raw_data</code> table to a usable format and insertis it into the other tables. 
+It can also be called automatically by adding <code>--parse</code> to the arguments of <code>request_raw</code>.</p>
+</li>
+<li>
+<p><code>parse_heatmap</code>: This command is a command that should be called before using the <code>create_heatmap</code> feature. 
+It counts together all of the recorded train trips into their own table for faster access.
+As near and local trafic can obfuscate the ending image, I recommend setting <code>-o 'ICE'</code> as filter.</p>
+</li>
+<li>
+<p><code>check</code>: This command checks if data from the HAFAS endpoint differs from the current data. 
+This check is only done for a single jid. A difference might hint at a schedule change.</p>
+</li>
+</ul>
+</li>
+<li><code>create_heatmap</code> Creates a horizontal bar diagram of the most used stations in the lookup table. 
+It can be filtered by cat_code, cat_out and search limit. For currently unkown reasons, anything over 11 Bars will mess up the station names.</li>
+<li><code>migrate</code>: Creates all neccessary infrastructure on the remote database.</li>
+</ul>
+</div></details></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="database_cli" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

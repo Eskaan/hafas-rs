@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["AESDecodeError","Some errors that may be returned by [`decode`]"]],"fn":[["decode","Decrypt a Base64-AES encoded String."],["encode","Encrypt a Base64-AES encoded String"],["hash_md5","Decrypt a String using md5"]]};

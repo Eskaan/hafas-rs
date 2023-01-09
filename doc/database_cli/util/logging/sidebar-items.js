@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["LogLevel","The log level. This is used program-wide to specify what should and what should not be logged. Default is `Info`. "]]};
