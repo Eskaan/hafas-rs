@@ -80,7 +80,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">1.</strong> About</a></li><li class="chapter-item expanded "><a href="structure.html"><strong aria-hidden="true">2.</strong> Structure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hafas-wrap.html"><strong aria-hidden="true">2.1.</strong> hafas_wrap</a></li><li class="chapter-item expanded "><a href="database-cli.html"><strong aria-hidden="true">2.2.</strong> database_cli</a></li></ol></li><li class="chapter-item expanded "><a href="installation.html" class="active"><strong aria-hidden="true">3.</strong> Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage.html"><strong aria-hidden="true">3.1.</strong> Usage</a></li></ol></li><li class="chapter-item expanded "><a href="hafas.html"><strong aria-hidden="true">4.</strong> HAFAS & DB</a></li><li class="chapter-item expanded "><a href="goals.html"><strong aria-hidden="true">5.</strong> Goals</a></li><li class="chapter-item expanded "><a href="future.html"><strong aria-hidden="true">6.</strong> Future</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">1.</strong> About</a></li><li class="chapter-item expanded "><a href="goals.html"><strong aria-hidden="true">2.</strong> Goals</a></li><li class="chapter-item expanded "><a href="structure.html"><strong aria-hidden="true">3.</strong> Structure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hafas-wrap.html"><strong aria-hidden="true">3.1.</strong> hafas_wrap</a></li><li class="chapter-item expanded "><a href="database-cli.html"><strong aria-hidden="true">3.2.</strong> database_cli</a></li></ol></li><li class="chapter-item expanded "><a href="installation.html" class="active"><strong aria-hidden="true">4.</strong> Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage.html"><strong aria-hidden="true">4.1.</strong> Usage</a></li></ol></li><li class="chapter-item expanded "><a href="hafas.html"><strong aria-hidden="true">5.</strong> HAFAS & DB</a></li><li class="chapter-item expanded "><a href="future.html"><strong aria-hidden="true">6.</strong> Future</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,9 +145,9 @@
 <h2 id="dependencies"><a class="header" href="#dependencies">Dependencies</a></h2>
 <p>This program depends on:</p>
 <ul>
-<li>A running <a href="https://www.postgresql.org/">Postgresql</a> server on <code>postgres://postgres@localhost/db-statistics</code>. <br>
-Tested with Postgresql 13.</li>
-<li><a href="https://www.rust-lang.org/">Rust</a> stable.</li>
+<li>A running <a href="https://www.postgresql.org/">Postgresql</a> server on <code>postgres://postgres@localhost/db-statistics</code> <br>
+Tested with Postgresql 13</li>
+<li><a href="https://www.rust-lang.org/">Rust</a> stable</li>
 <li>A working internet connection</li>
 </ul>
 <h2 id="quick-starter-guide"><a class="header" href="#quick-starter-guide">Quick starter guide</a></h2>
@@ -179,8 +179,8 @@ Tested with Postgresql 13.</li>
 </li>
 <li>Run <code>rustup install stable</code> in your terminal.</li>
 <li>Run <code>cargo build --release</code> in the hafas-rs folder.
-This should create a folder named <code>target/release</code> that contains a executable named <code>database-cli</code>.
-Congratulations, you just succesfully compiled the project!</li>
+This should create a folder named <code>target/release</code> that contains an executable named <code>database-cli</code>.
+Congratulations, you just successfully compiled the project!</li>
 </ol>
 </li>
 <li>Then use <code>database-cli migrate</code> to check the connection to the local database and create neccessary infrastructure like schemas, tables and functions.</li>
@@ -190,13 +190,13 @@ I recommend running this command over night and at other times the system is not
 <li>You are ready to play with the data in your favourite SQL prompt! See the <a href="./hafas.html">HAFAS Section</a> for more information on the database structure.</li>
 </ol>
 <p>(Optional)</p>
-<ol start="5">
+<ol start="6">
 <li>
 <p>Use <code>database-cli data parse_heatmap</code> to parse trip's eva counts into a lighter format.</p>
 </li>
 <li>
 <p>Use <code>database-cli create_heatmap -m 10</code> to get a diagram of the 10 most used stations.</p>
-<p>After following these steps, the program should create a image named <code>heatmap.svg</code> in the current folder. Here is an example for it:
+<p>After following these steps, the program should create an image named <code>heatmap.svg</code> in the current folder. Here is an example for it:
 <img src="./images/heatmap.svg" alt="Heatmap diagram" /></p>
 </li>
 </ol>

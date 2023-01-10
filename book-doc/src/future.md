@@ -1,2 +1,2 @@
-# Future of the Project
-{{#include ../../README.md:42:44}}
+# Future of the project
+{{#include ../../README.md:60:62}}

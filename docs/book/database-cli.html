@@ -80,7 +80,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">1.</strong> About</a></li><li class="chapter-item expanded "><a href="structure.html"><strong aria-hidden="true">2.</strong> Structure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hafas-wrap.html"><strong aria-hidden="true">2.1.</strong> hafas_wrap</a></li><li class="chapter-item expanded "><a href="database-cli.html" class="active"><strong aria-hidden="true">2.2.</strong> database_cli</a></li></ol></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">3.</strong> Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage.html"><strong aria-hidden="true">3.1.</strong> Usage</a></li></ol></li><li class="chapter-item expanded "><a href="hafas.html"><strong aria-hidden="true">4.</strong> HAFAS & DB</a></li><li class="chapter-item expanded "><a href="goals.html"><strong aria-hidden="true">5.</strong> Goals</a></li><li class="chapter-item expanded "><a href="future.html"><strong aria-hidden="true">6.</strong> Future</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">1.</strong> About</a></li><li class="chapter-item expanded "><a href="goals.html"><strong aria-hidden="true">2.</strong> Goals</a></li><li class="chapter-item expanded "><a href="structure.html"><strong aria-hidden="true">3.</strong> Structure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hafas-wrap.html"><strong aria-hidden="true">3.1.</strong> hafas_wrap</a></li><li class="chapter-item expanded "><a href="database-cli.html" class="active"><strong aria-hidden="true">3.2.</strong> database_cli</a></li></ol></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">4.</strong> Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage.html"><strong aria-hidden="true">4.1.</strong> Usage</a></li></ol></li><li class="chapter-item expanded "><a href="hafas.html"><strong aria-hidden="true">5.</strong> HAFAS & DB</a></li><li class="chapter-item expanded "><a href="future.html"><strong aria-hidden="true">6.</strong> Future</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -142,16 +142,16 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="the-database-cli-toolchain"><a class="header" href="#the-database-cli-toolchain">The database-cli toolchain</a></h1>
-<p>This is the (currently) only implementation of the aforementioned library.</p>
-<p>The current use is to create a database of trips, train_types, locations and operators. 
+<p>This is currently the only implementation of the aforementioned library.</p>
+<p>The current use is to create a database of trips, train types, locations and operators. 
 For the exact layout, see <code>database_layout.png</code> at the root of the project.
 You can also create a simple diagram from usage statistics.</p>
-<p>Altrough the program does not need a live database to compile, it will need a postgres database to function.
-The database needs to be on localhost, with the name <code>db-statistics</code> and the user <code>postgres</code> (password-less) 
+<p>Although the program does not need a live database to compile, it will need a postgres database to function.
+The database has to be on localhost, with the name <code>db-statistics</code> and the user <code>postgres</code> (password-less) 
 being able to access all tables specified in the database layout. 
-To prepare the database for use, run <code>database-cli migrate</code>. This will create all neccecary schemas, tables, types and functions.</p>
-<p>For the exact usage, refer to the rustdoc dcumentation of the [<code>main</code>] method or the usage section in the book.</p>
-<p>This crate is mostly written in a more procedual (althrough object-oriented) programming style, as common for a cli interface to a library.
+To prepare the database for use, run <code>database-cli migrate</code>. This will create all necessary schemas, tables, types and functions.</p>
+<p>For the exact usage, refer to the rustdoc documentation of the [<code>main</code>] method or the usage section in the book.</p>
+<p>This crate is mostly written in a more procedural (althrough object-oriented) programming style, as common for a cli interface to a library.
 This results in many modules which mostly contain single functions instead of entire objects. </p>
 <p>For this module-level I highly recommend the rust-doc documentation for this crate available <a href="./databasecli/index.html">here</a></p>
 <p>For better structured information on the cli commands, see the <a href="./usage.html">usage section</a> of this book.</p>
@@ -162,11 +162,11 @@ This results in many modules which mostly contain single functions instead of en
 <h2 id="parse_raw_jids"><a class="header" href="#parse_raw_jids">parse_raw_jids</a></h2>
 <p>This module gets called from the <code>data parse</code> subcommand and parses data from the <code>raw_data</code> and inserts it into the other tables <code>trips</code>,<code>locations</code>,<code>operators</code> and <code>train_types</code>.</p>
 <h2 id="count_location_trips"><a class="header" href="#count_location_trips">count_location_trips</a></h2>
-<p>This module is a extension to the <code>data parse</code> subcommand, called by using <code>dara parse_heatmap</code>. It </p>
+<p>This module is an extension to the <code>data parse</code> subcommand, called by using <code>dara parse_heatmap</code>.</p>
 <h2 id="compare_raw_data"><a class="header" href="#compare_raw_data">compare_raw_data</a></h2>
 <p>This module is called from the <code>data check</code> subcommand. It uses the request_raw_jids module to request a single jid and compare it to the <code>raw_data</code> table.</p>
 <h2 id="create_heatmap_diagram"><a class="header" href="#create_heatmap_diagram">create_heatmap_diagram</a></h2>
-<p>This module contains the only practical use besides playing with database data I have fount yet. It is called by the <code>create_heatmap</code> subcommand and creates a horizontal chart diagram displaying the most used stations in the database.</p>
+<p>This module contains the only practical use, I have found yet, besides toying with database data. It is called by the <code>create_heatmap</code> subcommand and creates a horizontal chart diagram displaying the most used stations in the database.</p>
 
                     </main>
 

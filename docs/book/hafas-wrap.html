@@ -80,7 +80,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">1.</strong> About</a></li><li class="chapter-item expanded "><a href="structure.html"><strong aria-hidden="true">2.</strong> Structure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hafas-wrap.html" class="active"><strong aria-hidden="true">2.1.</strong> hafas_wrap</a></li><li class="chapter-item expanded "><a href="database-cli.html"><strong aria-hidden="true">2.2.</strong> database_cli</a></li></ol></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">3.</strong> Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage.html"><strong aria-hidden="true">3.1.</strong> Usage</a></li></ol></li><li class="chapter-item expanded "><a href="hafas.html"><strong aria-hidden="true">4.</strong> HAFAS & DB</a></li><li class="chapter-item expanded "><a href="goals.html"><strong aria-hidden="true">5.</strong> Goals</a></li><li class="chapter-item expanded "><a href="future.html"><strong aria-hidden="true">6.</strong> Future</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">1.</strong> About</a></li><li class="chapter-item expanded "><a href="goals.html"><strong aria-hidden="true">2.</strong> Goals</a></li><li class="chapter-item expanded "><a href="structure.html"><strong aria-hidden="true">3.</strong> Structure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hafas-wrap.html" class="active"><strong aria-hidden="true">3.1.</strong> hafas_wrap</a></li><li class="chapter-item expanded "><a href="database-cli.html"><strong aria-hidden="true">3.2.</strong> database_cli</a></li></ol></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">4.</strong> Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage.html"><strong aria-hidden="true">4.1.</strong> Usage</a></li></ol></li><li class="chapter-item expanded "><a href="hafas.html"><strong aria-hidden="true">5.</strong> HAFAS & DB</a></li><li class="chapter-item expanded "><a href="future.html"><strong aria-hidden="true">6.</strong> Future</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -142,8 +142,8 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="the-hafas_wrap-library"><a class="header" href="#the-hafas_wrap-library">The hafas_wrap library</a></h1>
-<p>The main functionality comes with the <code>Client</code> object, as all requests are done through it.</p>
-<p>This library also provides some <a href="#hafas-profiles"><code>hafas_profiles</code></a> for common endpoints and <a href="#methods">request and response structs</a> to simplyfy the working with HAFAS endpoints.
+<p>The main functionality comes with the <code>Client</code> object, as all requests are done with it.</p>
+<p>This library also provides some <a href="#hafas-profiles"><code>hafas_profiles</code></a> for common endpoints and <a href="#methods">request and response structs</a> to simplify the working with HAFAS endpoints.
 The <a href="#utils"><code>util</code></a> module provides functions to de- and encode Base64-AES Strings using a statically set key and a md5 hashing function needed for requests.</p>
 <h2 id="the-request-function"><a class="header" href="#the-request-function">The request function</a></h2>
 <p>It provides a simple, through customisable system to access the HAFAS<sup class="footnote-reference"><a href="#hafas">1</a></sup>.
@@ -158,11 +158,11 @@ There are three common request parameters:</p>
 <p>A reference to it<code>self</code>, to access the <a href="https://crates.io/crates/reqwest">reqwest</a> request client used to make web requests</p>
 </li>
 <li>
-<p>A reference to a instance of the <code>HafasProfile</code> type.</p>
-<p>A hafas profile specifies the endpoint, possible encryption and additional config data that has to be passed on with the request.</p>
+<p>A reference to an instance of the <code>HafasProfile</code> type</p>
+<p>A <code>HafasProfile</code> specifies the endpoint, possible encryption and additional config data that have to be passed on with the request</p>
 </li>
 <li>
-<p>An array containing instances of the <code>RawHafasRequest</code> type.</p>
+<p>An array containing instances of the <code>RawHafasRequest</code> type</p>
 <p>The <code>RawHafasRequest</code> type (and it's request generic) have to implement <code>serde::Serialize + Send</code>. 
 These implementations are needed for the type to be serialized to a JSON string, used in the POST request to HAFAS<sup class="footnote-reference"><a href="#hafas">1</a></sup>.</p>
 </li>
@@ -248,7 +248,7 @@ where <code>request</code> is mainly a wrapper around the <code>request_raw</cod
 <li>JourneyDetail</li>
 </ul>
 <h2 id="utils"><a class="header" href="#utils">Utils</a></h2>
-<p>Some miscelaneous functions like ones to AES-Encrypt with a set key or to hash a String using the <code>md5</code> digest algorithm. </p>
+<p>Some miscellaneous functions like ones to AES-Encrypt with a set key or to hash a String using the <code>md5</code> digest algorithm. </p>
 <div class="footnote-definition" id="hafas"><sup class="footnote-definition-label">1</sup>
 <p><a href="https://de.wikipedia.org/wiki/HAFAS">Hacon Fahrplan Auskunfts System</a></p>
 </div>

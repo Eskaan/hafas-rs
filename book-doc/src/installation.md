@@ -1,9 +1,9 @@
 # Installation
 ## Dependencies
 This program depends on:
-- A running [Postgresql] server on `postgres://postgres@localhost/db-statistics`. <br>
-  Tested with Postgresql 13.
-- [Rust] stable.
+- A running [Postgresql] server on `postgres://postgres@localhost/db-statistics` <br>
+  Tested with Postgresql 13
+- [Rust] stable
 - A working internet connection
 
 
@@ -27,20 +27,20 @@ Disclaimer: Most of this guide only works on Linux, you may refer to the [Postgr
        - Other: [Rustup install guide](https://rustup.rs/)
     2. Run `rustup install stable` in your terminal.
     3. Run `cargo build --release` in the hafas-rs folder.
-       This should create a folder named `target/release` that contains a executable named `database-cli`.
-       Congratulations, you just succesfully compiled the project!
-2.  Then use `database-cli migrate` to check the connection to the local database and create neccessary infrastructure like schemas, tables and functions.
-3.  Use `database-cli data request_raw --parse` To request data and parse it into the database. 
+       This should create a folder named `target/release` that contains an executable named `database-cli`.
+       Congratulations, you just successfully compiled the project!
+3.  Then use `database-cli migrate` to check the connection to the local database and create neccessary infrastructure like schemas, tables and functions.
+4.  Use `database-cli data request_raw --parse` To request data and parse it into the database. 
     This will take a while for all ~1.5 Million entries to be fetched.
     I recommend running this command over night and at other times the system is not under heavy load.
-4.  You are ready to play with the data in your favourite SQL prompt! See the [HAFAS Section](./hafas.html) for more information on the database structure.
+5.  You are ready to play with the data in your favourite SQL prompt! See the [HAFAS Section](./hafas.html) for more information on the database structure.
 
 (Optional)
 
-5. Use `database-cli data parse_heatmap` to parse trip's eva counts into a lighter format.
-6. Use `database-cli create_heatmap -m 10` to get a diagram of the 10 most used stations.
+6. Use `database-cli data parse_heatmap` to parse trip's eva counts into a lighter format.
+7. Use `database-cli create_heatmap -m 10` to get a diagram of the 10 most used stations.
    
-   After following these steps, the program should create a image named `heatmap.svg` in the current folder. Here is an example for it:
+   After following these steps, the program should create an image named `heatmap.svg` in the current folder. Here is an example for it:
    ![Heatmap diagram](./images/heatmap.svg)
 
 [Rust]: https://www.rust-lang.org/

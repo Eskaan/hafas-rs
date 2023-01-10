@@ -1,9 +1,9 @@
 # The database-cli toolchain
-This is the (currently) only implementation of the aforementioned library.
+This is currently the only implementation of the aforementioned library.
 
 {{#include ../../database-cli/README.md:5:14}}
 
-This crate is mostly written in a more procedual (althrough object-oriented) programming style, as common for a cli interface to a library.
+This crate is mostly written in a more procedural (althrough object-oriented) programming style, as common for a cli interface to a library.
 This results in many modules which mostly contain single functions instead of entire objects. 
 
 For this module-level I highly recommend the rust-doc documentation for this crate available [here](./databasecli/index.html)
@@ -20,10 +20,10 @@ This module is responsible for the `data request_raw` subcommand. It requests ra
 This module gets called from the `data parse` subcommand and parses data from the `raw_data` and inserts it into the other tables `trips`,`locations`,`operators` and `train_types`.
 
 ## count_location_trips
-This module is a extension to the `data parse` subcommand, called by using `dara parse_heatmap`. It 
+This module is an extension to the `data parse` subcommand, called by using `dara parse_heatmap`.
 
 ## compare_raw_data
 This module is called from the `data check` subcommand. It uses the request_raw_jids module to request a single jid and compare it to the `raw_data` table.
 
 ## create_heatmap_diagram
-This module contains the only practical use besides playing with database data I have fount yet. It is called by the `create_heatmap` subcommand and creates a horizontal chart diagram displaying the most used stations in the database.
+This module contains the only practical use, I have found yet, besides toying with database data. It is called by the `create_heatmap` subcommand and creates a horizontal chart diagram displaying the most used stations in the database.

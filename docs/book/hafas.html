@@ -80,7 +80,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">1.</strong> About</a></li><li class="chapter-item expanded "><a href="structure.html"><strong aria-hidden="true">2.</strong> Structure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hafas-wrap.html"><strong aria-hidden="true">2.1.</strong> hafas_wrap</a></li><li class="chapter-item expanded "><a href="database-cli.html"><strong aria-hidden="true">2.2.</strong> database_cli</a></li></ol></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">3.</strong> Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage.html"><strong aria-hidden="true">3.1.</strong> Usage</a></li></ol></li><li class="chapter-item expanded "><a href="hafas.html" class="active"><strong aria-hidden="true">4.</strong> HAFAS & DB</a></li><li class="chapter-item expanded "><a href="goals.html"><strong aria-hidden="true">5.</strong> Goals</a></li><li class="chapter-item expanded "><a href="future.html"><strong aria-hidden="true">6.</strong> Future</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">1.</strong> About</a></li><li class="chapter-item expanded "><a href="goals.html"><strong aria-hidden="true">2.</strong> Goals</a></li><li class="chapter-item expanded "><a href="structure.html"><strong aria-hidden="true">3.</strong> Structure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hafas-wrap.html"><strong aria-hidden="true">3.1.</strong> hafas_wrap</a></li><li class="chapter-item expanded "><a href="database-cli.html"><strong aria-hidden="true">3.2.</strong> database_cli</a></li></ol></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">4.</strong> Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage.html"><strong aria-hidden="true">4.1.</strong> Usage</a></li></ol></li><li class="chapter-item expanded "><a href="hafas.html" class="active"><strong aria-hidden="true">5.</strong> HAFAS & DB</a></li><li class="chapter-item expanded "><a href="future.html"><strong aria-hidden="true">6.</strong> Future</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,7 +145,7 @@
 <h2 id="database-layout"><a class="header" href="#database-layout">Database Layout</a></h2>
 <p><img src="./images/db_layout.png" alt="Layout" /></p>
 <details>
-<summary>DDL for Database Layout</summary>
+<summary>DDL for Database Layout - click to expand</summary>
 <pre><code class="language-sql">CREATE SCHEMA lookup_data;
 
 CREATE TABLE lookup_data.raw_data (
@@ -211,12 +211,12 @@ $func$
 $func$ LANGUAGE sql STABLE;
 </code></pre>
 </details>
-<p>The whole database is currently contained to the lookup_data schema.</p>
+<p>The whole database is currently contained to the lookup_data scheme.</p>
 <p>The common scheme is shown above, with a few custom composite types and functions explained here:</p>
 <ul>
-<li><code>operation_dates</code> is a type that contains a array of <code>dates</code>, a <code>from_loc</code> eva with corresponding <code>to_loc</code> eva and a <code>info</code> text.</li>
+<li><code>operation_dates</code> is a type that contains an array of <code>dates</code>, a <code>from_loc</code> eva with corresponding <code>to_loc</code> eva and a <code>info</code> text.</li>
 <li><code>scheduled_stop</code> is a type describing a stop of a trip at a station. It contains the <code>eva</code>, the <code>scheduled_arrival</code> time and corresponding <code>scheduled_departure</code> time.</li>
-<li><code>from_evas</code> is a function taking an array of <code>scheduled_stop</code> elaments, extracting only the <code>eva</code> as int array from it.</li>
+<li><code>from_evas</code> is a function taking an array of <code>scheduled_stop</code> elements, extracting only the <code>eva</code> as int array from it.</li>
 </ul>
 
                     </main>
@@ -227,7 +227,7 @@ $func$ LANGUAGE sql STABLE;
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="goals.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="future.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -241,7 +241,7 @@ $func$ LANGUAGE sql STABLE;
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="goals.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="future.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

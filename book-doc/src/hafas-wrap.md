@@ -1,8 +1,8 @@
 # The hafas_wrap library
 
-The main functionality comes with the `Client` object, as all requests are done through it.
+The main functionality comes with the `Client` object, as all requests are done with it.
 
-This library also provides some [`hafas_profiles`](#hafas-profiles) for common endpoints and [request and response structs](#methods) to simplyfy the working with HAFAS endpoints.
+This library also provides some [`hafas_profiles`](#hafas-profiles) for common endpoints and [request and response structs](#methods) to simplify the working with HAFAS endpoints.
 The [`util`](#utils) module provides functions to de- and encode Base64-AES Strings using a statically set key and a md5 hashing function needed for requests.
 
 ## The request function
@@ -14,11 +14,11 @@ There are three common request parameters:
 ```
 - A reference to it`self`, to access the [reqwest] request client used to make web requests
 
-- A reference to a instance of the `HafasProfile` type.
+- A reference to an instance of the `HafasProfile` type
   
-  A hafas profile specifies the endpoint, possible encryption and additional config data that has to be passed on with the request.
+  A `HafasProfile` specifies the endpoint, possible encryption and additional config data that have to be passed on with the request
 
-- An array containing instances of the `RawHafasRequest` type.
+- An array containing instances of the `RawHafasRequest` type
 
   The `RawHafasRequest` type (and it's request generic) have to implement `serde::Serialize + Send`. 
   These implementations are needed for the type to be serialized to a JSON string, used in the POST request to HAFAS[^hafas].
@@ -86,7 +86,7 @@ Current available methods:
 - JourneyDetail
 
 ## Utils
-Some miscelaneous functions like ones to AES-Encrypt with a set key or to hash a String using the `md5` digest algorithm. 
+Some miscellaneous functions like ones to AES-Encrypt with a set key or to hash a String using the `md5` digest algorithm. 
 
 [reqwest]: https://crates.io/crates/reqwest
 [^hafas]: [Hacon Fahrplan Auskunfts System](https://de.wikipedia.org/wiki/HAFAS)
