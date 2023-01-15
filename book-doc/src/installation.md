@@ -16,13 +16,13 @@ Disclaimer: Most of this guide only works on Linux, you may refer to the [Postgr
        - Arch: `sudo pacman -S postgresql`
        - Debain & Ubuntu: `sudo apt install postgresql`
        - Other: [Postgresql install guide](https://www.postgresql.org/docs/current/tutorial-install.html)
-    2. Then, login into the newly created user: `sudo su postgres`
+    2. Then, login into the newly created user: `sudo su postgres`.
     3. Create a new database cluster using `initdb -D directory/to/store/data`.
-    4. Create a new database in the cluster named db-statistics in the cluster: `createdb db-statistics`
-    5. Start the Postgresql server (usually `sudo systemctl start postgresql`)
+    4. Start the Postgresql server (usually `sudo systemctl start postgresql`).
+    5. Create a new database in the cluster named db-statistics in the cluster: `createdb db-statistics`.
 2.  Compile the project:
     1. Install the rustup package:
-       - Arch: `sudo pacman install rustup`
+       - Arch: `sudo pacman -S rustup`
        - Debial & Ubuntu: `sudo apt install rustup`
        - Other: [Rustup install guide](https://rustup.rs/)
     2. Run `rustup install stable` in your terminal.
@@ -46,3 +46,4 @@ Disclaimer: Most of this guide only works on Linux, you may refer to the [Postgr
 [Rust]: https://www.rust-lang.org/
 [Postgresql]: https://www.postgresql.org/
 [Postgresql documentation]: https://www.postgresql.org/docs/current/
+
