@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="sidebar-visible no-js ayu">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -36,7 +36,7 @@
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -62,7 +62,7 @@
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
             html.classList.remove('no-js')
-            html.classList.remove('light')
+            html.classList.remove('ayu')
             html.classList.add(theme);
             html.classList.add('js');
         </script>
@@ -115,6 +115,9 @@
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/eskaan/hafas-rs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
 
                     </div>
@@ -355,17 +358,17 @@ Tested with Postgresql 13</li>
 <li>Other: <a href="https://www.postgresql.org/docs/current/tutorial-install.html">Postgresql install guide</a></li>
 </ul>
 </li>
-<li>Then, login into the newly created user: <code>sudo su postgres</code></li>
+<li>Then, login into the newly created user: <code>sudo su postgres</code>.</li>
 <li>Create a new database cluster using <code>initdb -D directory/to/store/data</code>.</li>
-<li>Create a new database in the cluster named db-statistics in the cluster: <code>createdb db-statistics</code></li>
-<li>Start the Postgresql server (usually <code>sudo systemctl start postgresql</code>)</li>
+<li>Start the Postgresql server (usually <code>sudo systemctl start postgresql</code>).</li>
+<li>Create a new database in the cluster named db-statistics in the cluster: <code>createdb db-statistics</code>.</li>
 </ol>
 </li>
 <li>Compile the project:
 <ol>
 <li>Install the rustup package:
 <ul>
-<li>Arch: <code>sudo pacman install rustup</code></li>
+<li>Arch: <code>sudo pacman -S rustup</code></li>
 <li>Debial &amp; Ubuntu: <code>sudo apt install rustup</code></li>
 <li>Other: <a href="https://rustup.rs/">Rustup install guide</a></li>
 </ul>

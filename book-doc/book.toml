@@ -4,3 +4,15 @@ language = "en"
 multilingual = false
 src = "src"
 title = "hafas-rs documentation"
+
+[build]
+build-dir = "../docs/book"
+create-missing = true
+extra-watch-dirs = ["../README.md", "../hafas-wrap/README.md", "../database-cli/README.md"]
+
+[output.html]
+default-theme = "ayu"
+git-repository-url = "https://github.com/eskaan/hafas-rs"
+
+#[output.wordcount]
+#optional = true
