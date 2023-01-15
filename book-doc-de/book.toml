@@ -1,6 +1,18 @@
 [book]
 authors = ["Eskaan"]
-language = "en"
+language = "de"
 multilingual = false
 src = "src"
 title = "hafas-rs documentation"
+
+[build]
+build-dir = "../docs/book-de"
+create-missing = true
+
+[output.html]
+default-theme = "ayu"
+git-repository-url = "https://github.com/eskaan/hafas-rs"
+
+#[output.wordcount]
+#optional = true
+
