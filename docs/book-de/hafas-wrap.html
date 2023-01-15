@@ -1,0 +1,305 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>hafas_wrap - hafas-rs documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">1.</strong> Über</a></li><li class="chapter-item expanded "><a href="goals.html"><strong aria-hidden="true">2.</strong> Ziele</a></li><li class="chapter-item expanded "><a href="structure.html"><strong aria-hidden="true">3.</strong> Struktur</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hafas-wrap.html" class="active"><strong aria-hidden="true">3.1.</strong> hafas_wrap</a></li><li class="chapter-item expanded "><a href="database-cli.html"><strong aria-hidden="true">3.2.</strong> database_cli</a></li></ol></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">4.</strong> Intallation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage.html"><strong aria-hidden="true">4.1.</strong> Nutzung</a></li></ol></li><li class="chapter-item expanded "><a href="hafas.html"><strong aria-hidden="true">5.</strong> HAFAS & DB</a></li><li class="chapter-item expanded "><a href="future.html"><strong aria-hidden="true">6.</strong> Zukunft</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">hafas-rs documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="die-hafas_wrap-bibliothek"><a class="header" href="#die-hafas_wrap-bibliothek">Die hafas_wrap-Bibliothek</a></h1>
+<p>Die Hauptfunktionalität kommt mit dem <code>Client</code>-Objekt, da alle Anfragen damit erledigt werden.</p>
+<p>Diese Bibliothek stellt auch einige Profile (<a href="#hafas-profiles"><code>hafas_profiles</code></a>) für gängige Endpunkte und <a href="#methods">Anfrage- und Antwortstrukturen</a> bereit, um die Arbeit mit HAFAS-Endpunkten zu vereinfachen.
+Das Modul <a href="#utils"><code>util</code></a> bietet Funktionen zum De- und Codieren von Base64-AES-Strings unter Verwendung eines statisch festgelegten Schlüssels und einer md5-Hashing-Funktion, die für Anfragen benötigt werden.</p>
+<h2 id="die-anfragefunktion"><a class="header" href="#die-anfragefunktion">Die Anfragefunktion</a></h2>
+<p>Es bietet ein einfaches, anpassbares System für den Zugriff auf HAFAS<sup class="footnote-reference"><a href="#hafas">1</a></sup>.
+Es gibt drei allgemeine Anforderungsparameter:</p>
+<pre><code class="language-rust ignore">    pub async fn request&lt;I: Serialize + Sized, O: DeserializeOwned&gt;(
+        &amp;self,
+        profile: &amp;HafasProfile,
+        requests: Vec&lt;RawHafasRequest&lt;I&gt;&gt;,
+    ) -&gt; Result&lt;Vec&lt;O&gt;, RequestError&gt; {</code></pre>
+<ul>
+<li>
+<p>Ein Verweis auf sich selbst, um auf den Anfrageclient <a href="https://crates.io/crates/reqwest">reqwest</a> zuzugreifen, der zum Stellen von Webanfragen verwendet wird</p>
+</li>
+<li>
+<p>Ein Verweis auf eine Instanz des Typs <code>HafasProfile</code>.</p>
+<p>Ein <code>HafasProfile</code> spezifiziert den Endpunkt, eine mögliche Verschlüsselung und zusätzliche Konfigurationsdaten, die mit der Anfrage übergeben werden müssen</p>
+</li>
+<li>
+<p>Ein Array, das Instanzen des Typs <code>RawHafasRequest</code> enthält</p>
+<p>Der <code>RawHafasRequest</code>-Typ (und seine generische Anfrage) müssen <code>serde::Serialize + Send</code> implementieren.
+Diese Implementierungen werden benötigt, damit der Typ in eine JSON-Zeichenfolge serialisiert werden kann, die in der POST-Anfrage an HAFAS<sup class="footnote-reference"><a href="#hafas">1</a></sup> verwendet wird.</p>
+</li>
+</ul>
+<p>Die <code>request</code>-Funktion versucht auch, die resultierenden Request-Bodys in den spezifizierten generischen Typ <code>O</code> zu parsen.
+Dieser Typ muss <code>DeserializeOwned</code> implementieren, damit er von einem JSON-Objekt deserialisiert werden kann.</p>
+<h2 id="anfrageverfahren"><a class="header" href="#anfrageverfahren">Anfrageverfahren</a></h2>
+<p>Es gibt zwei Methoden zum Anfordern von Daten: Entweder <code>request</code> oder <code>request_raw</code>,
+wobei <code>request</code> hauptsächlich ein Wrapper um die <code>request_raw</code>-Methode ist, um das Parsen der Ergebnisse zu erleichtern.</p>
+<p>Hier ist eine Zusammenfassung dessen, was die Funktionen tun:</p>
+<p>Beide:</p>
+<ol>
+<li>
+<p>Kopieren des <code>HafasProfile</code> in ein JSON-Objekt,</p>
+<p>Serialisieren der Anfragen in ein JSON-Objekt und setzen des <code>svcReqL</code>-Wert der Anfrage darauf.</p>
+<p>Serialisieren des JSON-Objekt in einen String</p>
+<pre><code class="language-rust ignore">    let mut req_values = profile.config.clone();
+    req_values[&quot;svcReqL&quot;] = serde_json::to_value(&amp;requests).unwrap();
+    let req_string = serde_json::to_string(&amp;req_values)?;</code></pre>
+</li>
+<li>
+<p>Optional das erstellen einer Prüfsumme für die GET-Parameter der Anfrage.</p>
+<pre><code class="language-rust ignore">    let checksum = match &amp;profile.secret {
+        Some(secret) =&gt; util::hash_md5(&amp;(req_string.clone() + secret)),
+        None =&gt; String::new(),
+    };</code></pre>
+</li>
+<li>
+<p>Antworttext einer Webanfrage an HAFAS<sup class="footnote-reference"><a href="#hafas">1</a></sup> erstellen, senden und abwarten.</p>
+<pre><code class="language-rust ignore">    let response = self
+        .reqwest_client
+        .post(profile.url)
+        .header(&quot;Accept&quot;, &quot;application/json&quot;)
+        .header(&quot;Content-Type&quot;, &quot;application/json&quot;)
+        .query(&amp;[(&quot;checksum&quot;, &amp;checksum)])
+        .body(req_string)
+        .send()
+        .await?;</code></pre>
+</li>
+</ol>
+<p><code>request_raw</code> gibt an dieser Stelle den Antwort-String zurück, während <code>request</code> mit dem Parsen der Antwort fortfährt:</p>
+<p>Nur <code>Anfrage</code>:</p>
+<ol start="5">
+<li>
+<p>Prüft, ob HAFAS<sup class="footnote-reference"><a href="#hafas">1</a></sup> eine Fehlermeldung zurückgegeben hat.</p>
+<pre><code class="language-rust ignore">    if res.get(&quot;err&quot;) != Some(&amp;Value::String(String::from(&quot;OK&quot;))) {
+        return Err(RequestError::InternalError(
+            res.get(&quot;err&quot;)</code></pre>
+</li>
+<li>
+<p>Deserialisiert die Anfrage in ein JSON-Objekt und versucht, das Antworttextsegment als Array abzurufen.</p>
+<pre><code class="language-rust ignore">    res.get(&quot;svcResL&quot;)
+        .ok_or(RequestError::DeserializeError(
+            &quot;Response not an Object or svcResL does not exist in it.&quot;,
+        ))?
+        .as_array()
+        .ok_or(RequestError::DeserializeError(&quot;svcResL is not an array.&quot;))?</code></pre>
+</li>
+<li>
+<p>Deserialisiert den Array von JSON-Objekten in den angegebenen generischen Typ <code>O</code>.</p>
+<pre><code class="language-rust ignore">        .iter()
+        .map(|r| {
+            Ok(serde_json::from_value(
+                r.get(&quot;res&quot;)
+                    .ok_or(RequestError::DeserializeError(
+                        &quot;field res does not exist. This is most likely a request error.&quot;,
+                    ))?
+                    .clone(),
+            )?)
+        })
+        .collect::&lt;Result&lt;Vec&lt;O&gt;, RequestError&gt;&gt;()</code></pre>
+</li>
+</ol>
+<h2 id="hafas-profile"><a class="header" href="#hafas-profile">HAFAS-Profile</a></h2>
+<p>Im Modul <code>hafas_profiles</code> sind mehrere Konfigurationsvoreinstellungen für verschiedene HAFAS<sup class="footnote-reference"><a href="#hafas">1</a></sup>-Endpunkte zu finden.</p>
+<p>Diese wurden aus verschiedenen anderen Open-Source-Projekten gesammelt.</p>
+<h2 id="methoden"><a class="header" href="#methoden">Methoden</a></h2>
+<p>Im Modul <code>Methoden</code> finden Sie einige Voreinstellungen für Request- und Response-Strukturen. Man muss sie nicht verwenden, aber sie wurden getestet und scheinen für die meisten Endpunkte zu funktionieren.</p>
+<p>Derzeit verfügbare Methoden:</p>
+<ul>
+<li>HimSearch</li>
+<li>JourneyMatch</li>
+<li>Reisedetails</li>
+</ul>
+<h2 id="dienstprogramme"><a class="header" href="#dienstprogramme">Dienstprogramme</a></h2>
+<p>Einige verschiedene Funktionen wie AES-Verschlüsselung mit einem festgelegten Schlüssel oder das Hashen eines Strings mit dem <code>md5</code>-Digest-Algorithmus.</p>
+<div class="footnote-definition" id="hafas"><sup class="footnote-definition-label">1</sup>
+<p><a href="https://de.wikipedia.org/wiki/HAFAS">Hacon Fahrplan Auskunfts System</a></p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="structure.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="database-cli.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="structure.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="database-cli.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

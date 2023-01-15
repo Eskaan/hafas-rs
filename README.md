@@ -18,7 +18,8 @@ HAFAS.
 The recommended way to access the documentation is through the generated HTML version in the docs folder.
 There is both `rustdoc` as `mdbook` documentation on this project, found in the `docs` folder.
 - [Rustdoc](https://eskaan.github.io/hafas-rs/rustdoc/database_cli/index.html)
-- [Book](https://eskaan.github.io/hafas-rs/book/)
+- [[en] Book](https://eskaan.github.io/hafas-rs/book/)
+- [[de] Book](https://eskaan.github.io/hafas-rs/book-de/)
 
 ## About the project
 The purpous of this project named HAFAS-RS, done for a high school presentation (GFS) by Adrian Struwe 
@@ -50,8 +51,8 @@ Credit also goes to [Marudor] and his [bahn.expert] project, it was very helpful
 ## Goals
 The primary goal of the project was to extract data, e.g. the most used stations, and display them in a database.
 
-Another goal was to query and compare train schedules
- to realtime data. Sadly, after many experiments I realized this API was designed to resist such data collection attempts. 
+Another goal was to query and compare train schedules to realtime data. 
+Sadly, after many experiments I realized this API was designed to resist such data collection attempts. 
 
 In the future, I want try to find a feasible way (that does not overload the API) to collect such data.
 

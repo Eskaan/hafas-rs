@@ -161,18 +161,19 @@ HAFAS.</p>
 There is both <code>rustdoc</code> as <code>mdbook</code> documentation on this project, found in the <code>docs</code> folder.</p>
 <ul>
 <li><a href="https://eskaan.github.io/hafas-rs/rustdoc/database_cli/index.html">Rustdoc</a></li>
-<li><a href="https://eskaan.github.io/hafas-rs/book/">Book</a></li>
+<li><a href="https://eskaan.github.io/hafas-rs/book/">[en] Book</a></li>
+<li><a href="https://eskaan.github.io/hafas-rs/book-de/">[de] Book</a></li>
 </ul>
 <h2 id="about-the-project"><a class="header" href="#about-the-project">About the project</a></h2>
 <p>The purpous of this project named HAFAS-RS, done for a high school presentation (GFS) by Adrian Struwe 
 (<a href="https://github.com/eskaan">Eskaan</a>), was to develop a program to collect and list targeted data on trips, train types, locations and operators of the Deutsche Bahn.</p>
 <p>It is currently licenced under the <a href="https://www.gnu.org/licenses/gpl-3.0.txt">GPL3</a> licence, allowing open distribution and modification of the code.
-The project is fully documented, both in source code (per <a href="doc.rust-lang.org/rustdoc">rustdoc</a>) as in this <a href="rust-lang.github.io/mdBook">mdbook</a>.</p>
+The project is fully documented, both in source code (per <a href="doc.rust-lang.org/rustdoc">rustdoc</a>) as in this [mdbook].</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="goals"><a class="header" href="#goals">Goals</a></h1>
+<h2 id="goals-1"><a class="header" href="#goals-1">Goals</a></h2>
 <p>The primary goal of the project was to extract data, e.g. the most used stations, and display them in a database.</p>
-<p>Another goal was to query and compare train schedules
-to realtime data. Sadly, after many experiments I realized this API was designed to resist such data collection attempts. </p>
-<p>In the future, I want try to find a feasible way (that does not overload the API) to collect such data.</p>
+<p>Another goal was to query and compare train schedules to realtime data. 
+Sadly, after many experiments I realized this API was designed to resist such data collection attempts. </p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="project-structure"><a class="header" href="#project-structure">Project structure</a></h1>
 <h2 id="general-structure"><a class="header" href="#general-structure">General structure</a></h2>
 <p>The project is split into two main parts: </p>
@@ -564,8 +565,8 @@ $func$ LANGUAGE sql STABLE;
 <li><code>from_evas</code> is a function taking an array of <code>scheduled_stop</code> elements, extracting only the <code>eva</code> as int array from it.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="future-of-the-project"><a class="header" href="#future-of-the-project">Future of the project</a></h1>
+<h2 id="future-of-the-project-1"><a class="header" href="#future-of-the-project-1">Future of the project</a></h2>
 <p>I plan to continue my work on this project and maybe one day develop a good HAFAS library for Rust. This is the primary goal for the future, after which I plan to create a public API that serves better readable responses than HAFAS.</p>
-<p>I am always happy to receive issues and pull requests on my projects, if this project catches on I will surely enjoy maintaining it.</p>
 
                     </main>
 

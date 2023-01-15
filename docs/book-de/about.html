@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Über - hafas-rs documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="about.html" class="active"><strong aria-hidden="true">1.</strong> Über</a></li><li class="chapter-item expanded "><a href="goals.html"><strong aria-hidden="true">2.</strong> Ziele</a></li><li class="chapter-item expanded "><a href="structure.html"><strong aria-hidden="true">3.</strong> Struktur</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hafas-wrap.html"><strong aria-hidden="true">3.1.</strong> hafas_wrap</a></li><li class="chapter-item expanded "><a href="database-cli.html"><strong aria-hidden="true">3.2.</strong> database_cli</a></li></ol></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">4.</strong> Intallation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="usage.html"><strong aria-hidden="true">4.1.</strong> Nutzung</a></li></ol></li><li class="chapter-item expanded "><a href="hafas.html"><strong aria-hidden="true">5.</strong> HAFAS & DB</a></li><li class="chapter-item expanded "><a href="future.html"><strong aria-hidden="true">6.</strong> Zukunft</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">hafas-rs documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="hafas-rs"><a class="header" href="#hafas-rs">HAFAS-RS</a></h1>
+<h3 id="entwicklung-eines-in-rust-geschriebenen-programms-zur-abfrage-von-deutsche-bahn-daten"><a class="header" href="#entwicklung-eines-in-rust-geschriebenen-programms-zur-abfrage-von-deutsche-bahn-daten">Entwicklung eines in Rust geschriebenen Programms zur Abfrage von &quot;Deutsche Bahn&quot;-Daten</a></h3>
+<h2 id="hintergrund"><a class="header" href="#hintergrund">Hintergrund</a></h2>
+<p>Die <a href="https://www.bahn.de/">Deutsche Bahn AG</a> (kurz DB oder auch die Bahn) ist das staatliche Eisenbahnunternehmen Deutschlands. Die DB ist
+eines der größten Transportunternehmen der Welt und der größte Eisenbahnbetreiber in
+Europa (laut [dieser](https://web.archive.org/web/20170927052239/http://www.railway-technology.com/features/featureengines-of-trade-the-ten-biggest-rail- Companies-by-Revenue-4943955/featureengines-of-trade-the-tent-biggest-rail-companys-by-Revenue-4943955-1.html) Quelle), wobei ein komplexes Netzwerk aus Fahrplänen, Zügen und Strecken in Deutschland und andere
+Europäische Länder müssen organisiert werden müssen. Zur Erleichterung der Online-Fahrplanauskunft 
+wird die Software <a href="https://de.wikipedia.org/wiki/HAFAS">HAFAS</a> (HaCon Fahrplan-Auskunfts-System) der Firma HaCon
+(Hannover Consulting, gehörend zu Siemens) verwendet.
+<a href="https://www.rust-lang.org/">Rust</a> ist eine System-Programmiersprache mit hervorragender Leistung und Sicherheit.
+Es ist nicht erforderlich, einen Müllsammler<sup class="footnote-reference"><a href="#gc">1</a></sup> oder Referenzzählung<sup class="footnote-reference"><a href="#refc">2</a></sup> zu verwenden, um die Speichersicherheit<sup class="footnote-reference"><a href="#memsafety">3</a></sup> sicherzustellen.
+Sicherheit. Rust kann für die Systemprogrammierung verwendet werden und bietet gleichzeitig High-Level-Funktionen.
+Beispielsweise können mit Rust Programme erstellt werden, um Daten aus unterschiedlichsten Programmierschnittstellen<sup class="footnote-reference"><a href="#apis">4</a></sup> zu ziehen, z.B.
+HAFAS.</p>
+<h2 id="dokumentation"><a class="header" href="#dokumentation">Dokumentation</a></h2>
+<p>Der empfohlene Zugriff auf die Dokumentation erfolgt über die generierte HTML-Version im Ordner <code>docs</code>.
+Es gibt sowohl eine <code>rustdoc</code>- als auch eine <code>mdbook</code>-Dokumentation zu diesem Projekt, die sich im Ordner <code>docs</code> befindet.</p>
+<ul>
+<li><a href="https://eskaan.github.io/hafas-rs/rustdoc/database_cli/index.html">Rustdoc</a></li>
+<li><a href="https://eskaan.github.io/hafas-rs/book/">[en] Buch</a></li>
+<li><a href="https://eskaan.github.io/hafas-rs/book-de/">[de] Buch</a></li>
+</ul>
+<h2 id="Über-das-projekt"><a class="header" href="#Über-das-projekt">Über das Projekt</a></h2>
+<p>Das Zeil dieses Projekts mit dem Namen HAFAS-RS, für eine Highschool-Präsentation (GFS) von Adrian Struwe
+(<a href="https://github.com/eskaan">Eskaan</a>) erstellt, war ein Programm zu entwickeln, um gezielt Daten zu Fahrten, Zugtypen, Standorten und Betreibern der Deutschen Bahn zu sammeln und aufzulisten.</p>
+<p>Es ist derzeit unter der <a href="https://www.gnu.org/licenses/gpl-3.0.txt">GPL3</a>-Lizenz lizenziert, die eine offene Verteilung und Änderung des Codes erlaubt.
+Das Projekt ist vollständig dokumentiert, sowohl im Quellcode (per <a href="doc.rust-lang.org/rustdoc">rustdoc</a>) als auch in diesem <a href="rust-lang.github.io/mdBook">mdbook</a>.</p>
+<div class="footnote-definition" id="gc"><sup class="footnote-definition-label">1</sup>
+<p>Englisch <a href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">Garbage Collector</a>
+<sup class="footnote-reference"><a href="#refc">2</a></sup>: Englisch <a href="https://en.wikipedia.org/wiki/Reference_counting">Reference Counting</a>
+<sup class="footnote-reference"><a href="#memsafety">3</a></sup>: Englisch <a href="https://en.wikipedia.org/wiki/Memory_safety">Memory Safety</a>
+<sup class="footnote-reference"><a href="#apis">4</a></sup>: Englisch <a href="https://en.wikipedia.org/wiki/API">API</a>, Application Programming Interface</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next" href="goals.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next" href="goals.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
