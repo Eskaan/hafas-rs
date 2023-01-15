@@ -4,7 +4,7 @@
 ## Hintergrund
 Die [Deutsche Bahn AG] (kurz DB oder auch die Bahn) ist das staatliche Eisenbahnunternehmen Deutschlands. Die DB ist
 eines der größten Transportunternehmen der Welt und der größte Eisenbahnbetreiber in
-Europa (laut [dieser](https://web.archive.org/web/20170927052239/http://www.railway-technology.com/features/featureengines-of-trade-the-ten-biggest-rail- Companies-by-Revenue-4943955/featureengines-of-trade-the-tent-biggest-rail-companys-by-Revenue-4943955-1.html) Quelle), wobei ein komplexes Netzwerk aus Fahrplänen, Zügen und Strecken in Deutschland und andere
+Europa (laut [dieser](https://web.archive.org/web/20170927052239/http://www.railway-technology.com/features/featureengines-of-trade-the-ten-biggest-rail-companies-by-revenue-4943955/featureengines-of-trade-the-ten-biggest-rail-companies-by-revenue-4943955-1.html) Quelle), wobei ein komplexes Netzwerk aus Fahrplänen, Zügen und Strecken in Deutschland und andere
 Europäische Länder müssen organisiert werden müssen. Zur Erleichterung der Online-Fahrplanauskunft 
 wird die Software [HAFAS] (HaCon Fahrplan-Auskunfts-System) der Firma HaCon
 (Hannover Consulting, gehörend zu Siemens) verwendet.
