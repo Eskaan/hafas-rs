@@ -1,4 +1,7 @@
 # HAFAS-RS
+### Status
+Currently this library only implements a very small part of HAFAS and is very much not production ready. The library is built in such a way, that you can make requests using your own data structs if you want, but I'd recommend making a pull request and adding it to the library. **Any help is welcome.**
+
 ### Development of a program written in Rust to query "Deutsche Bahn"-data
 
 ## Background
